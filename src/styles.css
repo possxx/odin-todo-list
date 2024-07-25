@@ -1,3 +1,82 @@
+@import "modern-normalize/modern-normalize.css";
+
+@font-face {
+    font-family: "open-sans";
+    src: url("./fonts/opensans-variablefont.woff2") format("woff2-variations");
+    font-weight: 300 800;
+    font-stretch: 75% 100%;
+}
+
+*, *::before, *::after {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+:root {
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-200: #bfdbfe;
+    --blue-300: #93c5fd;
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+    --blue-900: #1e3a8a;
+    --blue-950: #172554;
+}
+
+.page {
+    height: 200vh;
+}
+
+.sidebar {
+    height: 100%;
+    width: clamp(300px, 20vw, 600px);
+    border: 1px solid var(--blue-950);
+    position: fixed;
+    overflow-y: auto;
+}
+
+.content {
+    border: 1px solid var(--blue-950);
+    margin-left: clamp(300px, 20vw, 600px);
+    height: 100%;
+}
+
+p {
+    font-family: "open-sans";
+    font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 20px);
+}
+
 h1 {
-    font-weight: lighter;
+    font-family: "open-sans";
+    font-weight: 700;
+    font-size: clamp(32px, 2vw, 36px);
+}
+
+h2 {
+    font-family: "open-sans";
+    font-weight: 600;
+    font-size: clamp(24px, 1.7vw, 28px);
+}
+
+h3 {
+    font-family: "open-sans";
+    font-weight: 600;
+    font-size: clamp(16px, 1.5vw, 20px);
 }
