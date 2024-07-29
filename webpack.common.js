@@ -7,8 +7,8 @@ module.exports = {
   entry: [
     './src/index.js', 
     "./src/styles.css", 
-    "./src/modules/navigation/addproject.js",
-    "./src/modules/navigation/addproject-dom.js",
+    "./src/modules/navigation/project-navigation.js",
+    "./src/modules/navigation/project-navigation-dom.js",
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
