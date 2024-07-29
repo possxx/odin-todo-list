@@ -223,6 +223,11 @@ h3 {
     color: var(--sky-50);
 }
 
+.project-buttons {
+    display: flex;
+    gap: 4px;
+}
+
 .change-title,
 .discard-changes {
     border-radius: 4px;
