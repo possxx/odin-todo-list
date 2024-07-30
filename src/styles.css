@@ -231,7 +231,9 @@ h3 {
 }
 
 .change-title,
-.discard-changes {
+.discard-changes,
+.save-project,
+.discard-project {
     border-radius: 4px;
     border: none;
     padding: 4px 8px;
@@ -241,7 +243,9 @@ h3 {
 }
 
 .change-title:hover,
-.discard-changes:hover {
+.discard-changes:hover,
+.save-project:hover,
+.discard-project:hover {
     background-color: var(--sky-950);
     color: var(--sky-50);
 }
