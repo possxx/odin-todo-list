@@ -9,13 +9,15 @@ function addProject(title, ...todos) {
     projects.push(project);
 }
 
-addProject("Project 1");
+function editProject(project, title) {
+    project.title = title;
+}
 
 function Todo (title, description, dueDate, priority, notes, ...checklist) {
     return { title, description, dueDate, priority, notes, checklist };
 }
 
-export { projects, addProject };
+export { projects, addProject, editProject };
 
 
 
