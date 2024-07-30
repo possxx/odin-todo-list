@@ -78,6 +78,7 @@ h3 {
     width: clamp(300px, 30vw, 380px);
     position: fixed;
     overflow-y: auto;
+    overflow-x: hidden;
     background-color: var(--sky-500);
     padding: 20px 0 20px 16px;
     display: flex;
