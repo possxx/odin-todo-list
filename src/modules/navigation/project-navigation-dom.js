@@ -1,4 +1,4 @@
-import { projects, addProject, editProject } from "./project-navigation.js";
+import { projects, addProject, editProject, removeProject } from "./project-navigation.js";
 
 const projectsDom = document.querySelector(".projects");
 
@@ -133,6 +133,7 @@ function createProjectDom(title) {
     project.appendChild(projectIcons);
 
     projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
+    projectDeleteIconSvg.addEventListener("click", () => removeProjectDom(project));
 
     return project;
 }
@@ -204,7 +205,7 @@ function editProjectDom(project, projectDom, projectTitle) {
     projectTitleInput.setAttribute("type", "text");
     projectTitleInput.setAttribute("autocomplete", "off");
     projectTitleInput.setAttribute("maxlength", "20");
-    projectTitleInput.setAttribute("name", "project_title")
+    projectTitleInput.setAttribute("name", "edit_project_title")
     projectTitleInput.setAttribute("placeholder", `${project.title}`);
 
     projectEditTitleInput.appendChild(projectTitleInput);
@@ -250,6 +251,24 @@ function changeProjectTitleDom(project, projectDom, projectTitle, projectEdit, i
 
 function discardChanges(projectDom, projectEdit) {
     projectEdit.replaceWith(projectDom);
+}
+
+function removeProjectDom(projectDom) {
+    const index = projectDom.getAttribute("data");
+    removeProject(index);
+    projectDom.remove();
+    updateDataAttribute(index);
+}
+
+function updateDataAttribute(index) {
+    const data = document.querySelectorAll("[data]");
+    let attribute;
+    data.forEach(item => {
+        attribute = +(item.getAttribute("data"));
+        if (item.getAttribute("data") > index) {
+            item.setAttribute("data", `${attribute - 1}`)
+        }
+    })
 }
 
 
