@@ -14,10 +14,16 @@ addProjectButtonDom.addEventListener("click", () => {
 function createInitialProjectDomElement(title) {
     const attribute = projects.length;
 
+    const projectWrapper = document.createElement("div");
+    projectWrapper.classList.add("projectWrapper");
+
     const project = document.createElement("div");
     project.classList.add("project");
     project.classList.add("initial-project");
     project.setAttribute("data", `${attribute}`);
+
+    const todos = document.createElement("div");
+    todos.classList.add("todos");
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
@@ -60,9 +66,12 @@ function createInitialProjectDomElement(title) {
     project.appendChild(projectNavigation);
     project.appendChild(projectIcons);
 
+    projectWrapper.appendChild(project);
+    projectWrapper.appendChild(todos);
+
     projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
 
-    return project;
+    return projectWrapper;
 }
 
 function createInitialProjectDom(title) {
@@ -78,9 +87,15 @@ const initialProject = document.querySelector(".initial-project");
 function createProjectDomElement(title) {
     const attribute = projects.length;
 
+    const projectWrapper = document.createElement("div");
+    projectWrapper.classList.add("projectWrapper");
+
     const project = document.createElement("div");
     project.classList.add("project");
     project.setAttribute("data", `${attribute}`);
+
+    const todos = document.createElement("div");
+    todos.classList.add("todos");
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
@@ -132,10 +147,13 @@ function createProjectDomElement(title) {
     project.appendChild(projectNavigation);
     project.appendChild(projectIcons);
 
+    projectWrapper.appendChild(project);
+    projectWrapper.appendChild(todos);
+
     projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
     projectDeleteIconSvg.addEventListener("click", () => removeProjectDom(project));
 
-    return project;
+    return projectWrapper;
 }
 
 function createProjectDom(title) {
