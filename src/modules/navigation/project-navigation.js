@@ -4,7 +4,7 @@ function Project (title, ...todos) {
     return { title, todos };
 }
 
-function addProject(title, ...todos) {
+function createProject(title, ...todos) {
     const project = Project(title, ...todos);
     projects.push(project);
 }
@@ -21,7 +21,7 @@ function Todo (title, description, dueDate, priority, notes, ...checklist) {
     return { title, description, dueDate, priority, notes, checklist };
 }
 
-export { projects, addProject, editProject, removeProject };
+export { projects, createProject, editProject, removeProject };
 
 
 

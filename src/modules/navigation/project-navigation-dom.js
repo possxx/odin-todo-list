@@ -1,4 +1,4 @@
-import { projects, addProject, editProject, removeProject } from "./project-navigation.js";
+import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
 
 const projectsDom = document.querySelector(".projects");
 
@@ -6,12 +6,12 @@ const addProjectButtonDom = document.querySelector(".add-project");
 
 addProjectButtonDom.addEventListener("click", () => {
     if (!(document.querySelector(".project-add"))) {
-        projectsDom.insertBefore(addProjectDom(), initialProject.nextSibling);
+        projectsDom.insertBefore(addProjectDomElement(), initialProject.nextSibling);
     }
     document.querySelector("input[name='project_title']").focus();
 })
 
-function createInitialProjectDom(title) {
+function createInitialProjectDomElement(title) {
     const attribute = projects.length;
 
     const project = document.createElement("div");
@@ -65,17 +65,17 @@ function createInitialProjectDom(title) {
     return project;
 }
 
-function createInitialProject(title) {
-    const project = createInitialProjectDom(title);
-    addProject(title);
+function createInitialProjectDom(title) {
+    const project = createInitialProjectDomElement(title);
+    createProject(title);
     projectsDom.appendChild(project);
 }
 
-createInitialProject("Home");
+createInitialProjectDom("Home");
 
 const initialProject = document.querySelector(".initial-project");
 
-function createProjectDom(title) {
+function createProjectDomElement(title) {
     const attribute = projects.length;
 
     const project = document.createElement("div");
@@ -138,13 +138,13 @@ function createProjectDom(title) {
     return project;
 }
 
-function createProject(title) {
-    const project = createProjectDom(title);
-    addProject(title);
+function createProjectDom(title) {
+    const project = createProjectDomElement(title);
+    createProject(title);
     return project;
 }
 
-function addProjectDom() {
+function addProjectDomElement() {
     const projectAdd = document.createElement("div");
     projectAdd.classList.add("project-add");
 
@@ -166,11 +166,11 @@ function addProjectDom() {
     const saveProjectButton = document.createElement("button");
     saveProjectButton.classList.add("save-project");
     saveProjectButton.innerText = "Save Project";
-    saveProjectButton.addEventListener("click", () => saveProject());
+    saveProjectButton.addEventListener("click", () => saveProjectDomElement());
     const discardProjectButton = document.createElement("button");
     discardProjectButton.classList.add("discard-project");
     discardProjectButton.innerText = "Discard Project";
-    discardProjectButton.addEventListener("click", () => closeProject());
+    discardProjectButton.addEventListener("click", () => closeProjectDomElement());
 
     projectButtons.appendChild(saveProjectButton);
     projectButtons.appendChild(discardProjectButton);
@@ -181,20 +181,20 @@ function addProjectDom() {
     return projectAdd;
 }
 
-function saveProject() {
+function saveProjectDomElement() {
     const titleInput = document.querySelector("input[name='project_title']");
     const title = titleInput.value;
 
-    projectsDom.appendChild(createProject(title));
-    closeProject();
+    projectsDom.insertBefore(createProjectDom(title), initialProject.nextSibling);
+    closeProjectDomElement();
 }
 
-function closeProject() {
+function closeProjectDomElement() {
     const projectAdd = document.querySelector(".project-add");
     projectAdd.remove();
 }
 
-function editProjectDom(project, projectDom, projectTitle) {
+function editProjectDomElement(project, projectDom, projectTitle) {
     const projectEdit = document.createElement("div");
     projectEdit.classList.add("project-edit");
 
@@ -220,7 +220,7 @@ function editProjectDom(project, projectDom, projectTitle) {
     const discardChangesButton = document.createElement("button");
     discardChangesButton.classList.add("discard-changes");
     discardChangesButton.innerText = "Discard Changes";
-    discardChangesButton.addEventListener("click", () => discardChanges(projectDom, projectEdit));
+    discardChangesButton.addEventListener("click", () => discardChangesProjectTitleDom(projectDom, projectEdit));
 
     projectButtons.appendChild(changeTitleButton);
     projectButtons.appendChild(discardChangesButton);
@@ -235,7 +235,7 @@ function editProjectTitleDom(projectElement, projectTitle) {
     const projectDom = projectElement;
     const index = projectDom.getAttribute("data");
     const project = projects[index];
-    const projectValues = editProjectDom(project, projectDom, projectTitle);
+    const projectValues = editProjectDomElement(project, projectDom, projectTitle);
     const projectEdit = projectValues[0];
     const projectInput = projectValues[1];
     projectDom.replaceWith(projectEdit);
@@ -249,7 +249,7 @@ function changeProjectTitleDom(project, projectDom, projectTitle, projectEdit, i
     projectEdit.replaceWith(projectDom);
 }
 
-function discardChanges(projectDom, projectEdit) {
+function discardChangesProjectTitleDom(projectDom, projectEdit) {
     projectEdit.replaceWith(projectDom);
 }
 
@@ -258,6 +258,7 @@ function removeProjectDom(projectDom) {
     removeProject(index);
     projectDom.remove();
     updateDataAttribute(index);
+    console.log(projects);
 }
 
 function updateDataAttribute(index) {
