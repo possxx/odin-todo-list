@@ -25,6 +25,7 @@ function createInitialProjectDomElement(title) {
 
     const todos = document.createElement("div");
     todos.classList.add("todos");
+    todos.setAttribute("data", `${attribute}`);
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
@@ -98,6 +99,7 @@ function createProjectDomElement(title) {
 
     const todos = document.createElement("div");
     todos.classList.add("todos");
+    todos.setAttribute("data", `${attribute}`);
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
