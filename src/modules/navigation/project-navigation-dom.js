@@ -15,11 +15,11 @@ function createInitialProjectDomElement(title) {
     const attribute = projects.length;
 
     const projectWrapper = document.createElement("div");
-    projectWrapper.classList.add("projectWrapper");
+    projectWrapper.classList.add("project-wrapper");
+    projectWrapper.classList.add("initial-project");
 
     const project = document.createElement("div");
     project.classList.add("project");
-    project.classList.add("initial-project");
     project.setAttribute("data", `${attribute}`);
 
     const todos = document.createElement("div");
@@ -88,7 +88,7 @@ function createProjectDomElement(title) {
     const attribute = projects.length;
 
     const projectWrapper = document.createElement("div");
-    projectWrapper.classList.add("projectWrapper");
+    projectWrapper.classList.add("project-wrapper");
 
     const project = document.createElement("div");
     project.classList.add("project");
