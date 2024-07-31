@@ -75,10 +75,10 @@ h3 {
 
 .sidebar {
     height: 100%;
-    width: clamp(300px, 30vw, 380px);
+    width: clamp(320px, 34vw, 380px);
     position: fixed;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: auto;
     background-color: var(--sky-500);
     padding: 20px 0 20px 16px;
     display: flex;
@@ -253,7 +253,7 @@ h3 {
 
 .content {
     border: 1px solid var(--sky-950);
-    margin-left: clamp(300px, 30vw, 380px);
+    margin-left: clamp(320px, 34vw, 380px);
     height: 100%;
 }
 
