@@ -1,5 +1,6 @@
 import { projects } from "./project-navigation.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
+import { updateAttribute } from "./project-navigation-dom.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -46,7 +47,7 @@ function createTodoDomElement(title) {
     todo.appendChild(todoNavigation);
     todo.appendChild(todoIcons);
 
-    return todo;
+    return [todo, todoDeleteIconSvg];
 }
 
 function createTodoDom(project, todos) {
@@ -58,9 +59,13 @@ function createTodoDom(project, todos) {
     } else {
         todoTitle = `Untitled ${todoIndex}`;
     }
-    const todo = createTodoDomElement(todoTitle);
+    const todoValues = createTodoDomElement(todoTitle);
+    const todo = todoValues[0];
+    const todoDeleteIcon = todoValues[1];
+    todoDeleteIcon.addEventListener("click", () => removeTodoDom(todo, projectIndex));
     createTodo(todoTitle, projectIndex);
     todo.setAttribute("todo", `${todoIndex}`);
+    todo.setAttribute("data", `${projectIndex}`);
     todos.appendChild(todo);
 }
 
@@ -71,3 +76,16 @@ function removeAllTodosDom(project) {
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
 }
+
+function removeTodoDom(todo, projectIndex) {
+    const index = todo.getAttribute("todo");
+    removeTodo(projectIndex, index);
+    todo.remove();
+    const todoWrapper = document.querySelector(`.todos[data='${projectIndex}']`);
+    const todoElements = todoWrapper.querySelectorAll(".todo");
+    updateAttribute(todoElements, index, "todo");
+    console.table(projects[projectIndex].todos);
+}
+
+
+
