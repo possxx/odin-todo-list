@@ -1,6 +1,6 @@
 import { projects } from "./project-navigation.js";
 
-export { createTodo, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority };
+export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority };
 
 function Todo(title, description, dueDate, priority, ...checklist) {
     return { title, description, dueDate, priority, checklist };
@@ -8,6 +8,11 @@ function Todo(title, description, dueDate, priority, ...checklist) {
 
 function createTodo(title, index) {
     projects[index].todos.push(Todo(title));
+}
+
+function removeAllTodos(projectIndex) {
+    const todoLength = projects[projectIndex].todos.length;
+    projects[projectIndex].todos.splice(0, todoLength);
 }
 
 function removeTodo(projectIndex, todoIndex) {
