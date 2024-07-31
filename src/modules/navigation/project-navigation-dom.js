@@ -1,5 +1,5 @@
 import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
-import { createTodoDom } from "./todo-navigation-dom.js";
+import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
 
 const projectsDom = document.querySelector(".projects");
 
@@ -156,7 +156,7 @@ function createProjectDomElement(title) {
 
     projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
     projectAddListIconSvg.addEventListener("click", () => createTodoDom(project, todos));
-    projectDeleteIconSvg.addEventListener("click", () => removeProjectDom(project));
+    projectDeleteIconSvg.addEventListener("click", () => removeProjectDom(project, projectWrapper));
 
     return projectWrapper;
 }
@@ -276,12 +276,12 @@ function discardChangesProjectTitleDom(projectDom, projectEdit) {
     projectEdit.replaceWith(projectDom);
 }
 
-function removeProjectDom(projectDom) {
+function removeProjectDom(projectDom, projectWrapper) {
     const index = projectDom.getAttribute("data");
+    removeAllTodosDom(projectDom);
     removeProject(index);
-    projectDom.remove();
+    projectWrapper.remove();
     updateDataAttribute(index);
-    console.log(projects);
 }
 
 function updateDataAttribute(index) {
