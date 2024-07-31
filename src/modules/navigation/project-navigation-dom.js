@@ -1,6 +1,8 @@
 import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
 
+export { updateAttribute };
+
 const projectsDom = document.querySelector(".projects");
 
 const addProjectButtonDom = document.querySelector(".add-project");
