@@ -17,10 +17,6 @@ function removeProject(index) {
     projects.splice(index, 1);
 }
 
-function Todo (title, description, dueDate, priority, notes, ...checklist) {
-    return { title, description, dueDate, priority, notes, checklist };
-}
-
 export { projects, createProject, editProject, removeProject };
 
 
