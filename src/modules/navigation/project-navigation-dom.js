@@ -281,16 +281,16 @@ function removeProjectDom(projectDom, projectWrapper) {
     removeAllTodosDom(projectDom);
     removeProject(index);
     projectWrapper.remove();
-    updateDataAttribute(index);
+    const data = document.querySelectorAll("[data]");
+    updateAttribute(data, index, "data");
 }
 
-function updateDataAttribute(index) {
-    const data = document.querySelectorAll("[data]");
-    let attribute;
-    data.forEach(item => {
-        attribute = +(item.getAttribute("data"));
-        if (item.getAttribute("data") > index) {
-            item.setAttribute("data", `${attribute - 1}`)
+function updateAttribute(element, index, attribute) {
+    let attributeValue;
+    element.forEach(item => {
+        attributeValue = +(item.getAttribute(attribute));
+        if (item.getAttribute(attribute) > index) {
+            item.setAttribute(attribute, attributeValue - 1);
         }
     })
 }
