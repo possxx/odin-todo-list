@@ -291,7 +291,7 @@ function updateAttribute(element, index, attribute) {
     let attributeValue;
     element.forEach(item => {
         attributeValue = +(item.getAttribute(attribute));
-        if (item.getAttribute(attribute) > index) {
+        if (attributeValue > index) {
             item.setAttribute(attribute, attributeValue - 1);
         }
     })
