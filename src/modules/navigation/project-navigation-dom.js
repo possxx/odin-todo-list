@@ -35,7 +35,7 @@ function createInitialProjectDomElement(title) {
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
     projectIconSvg.setAttribute("viewBox", "0 -960 960 960");
-    projectIconPath.setAttribute("d", "M280-280h533.33v-466.67H280V-280Zm0 66.67q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z");
+    projectIconPath.setAttribute("d", "M146.67-160q-27 0-46.84-20.17Q80-200.33 80-226.67v-506.66q0-26.34 19.83-46.5Q119.67-800 146.67-800H414l66.67 66.67h332.66q26.34 0 46.5 20.16Q880-693 880-666.67v440q0 26.34-20.17 46.5Q839.67-160 813.33-160H146.67Zm0-66.67h666.66v-440H453l-66.67-66.66H146.67v506.66Zm0 0v-506.66V-226.67Z");
     projectIconSvg.appendChild(projectIconPath);
 
     const projectTitle = document.createElement("div");
@@ -109,7 +109,7 @@ function createProjectDomElement(title) {
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
     projectIconSvg.setAttribute("viewBox", "0 -960 960 960");
-    projectIconPath.setAttribute("d", "M280-280h533.33v-466.67H280V-280Zm0 66.67q-27 0-46.83-19.84Q213.33-253 213.33-280v-533.33q0-27 19.84-46.84Q253-880 280-880h533.33q27 0 46.84 19.83Q880-840.33 880-813.33V-280q0 27-19.83 46.83-19.84 19.84-46.84 19.84H280ZM146.67-80q-27 0-46.84-19.83Q80-119.67 80-146.67v-600h66.67v600h600V-80h-600ZM280-813.33V-280v-533.33Z");
+    projectIconPath.setAttribute("d", "M146.67-160q-27 0-46.84-20.17Q80-200.33 80-226.67v-506.66q0-26.34 19.83-46.5Q119.67-800 146.67-800H414l66.67 66.67h332.66q26.34 0 46.5 20.16Q880-693 880-666.67v440q0 26.34-20.17 46.5Q839.67-160 813.33-160H146.67Zm0-66.67h666.66v-440H453l-66.67-66.66H146.67v506.66Zm0 0v-506.66V-226.67Z");
     projectIconSvg.appendChild(projectIconPath);
 
     const projectTitle = document.createElement("div");
