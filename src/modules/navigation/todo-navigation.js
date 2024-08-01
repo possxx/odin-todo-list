@@ -11,8 +11,7 @@ function createTodo(title, index) {
 }
 
 function removeAllTodos(projectIndex) {
-    const todoLength = projects[projectIndex].todos.length;
-    projects[projectIndex].todos.splice(0, todoLength);
+    projects[projectIndex].todos.splice(0);
 }
 
 function removeTodo(projectIndex, todoIndex) {
