@@ -75,16 +75,16 @@ function removeAllTodosDom(project) {
     const todos = document.querySelector(`[data='${projectIndex}']`)
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
+    console.table(projects[projectIndex].todos);
 }
 
 function removeTodoDom(todo, projectIndex) {
-    const index = todo.getAttribute("todo");
+    let index = todo.getAttribute("todo");
     removeTodo(projectIndex, index);
     todo.remove();
     const todoWrapper = document.querySelector(`.todos[data='${projectIndex}']`);
     const todoElements = todoWrapper.querySelectorAll(".todo");
     updateAttribute(todoElements, index, "todo");
-    console.table(projects[projectIndex].todos);
 }
 
 
