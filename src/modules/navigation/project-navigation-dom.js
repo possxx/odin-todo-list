@@ -45,14 +45,6 @@ function createInitialProjectDomElement(title) {
     const projectIcons = document.createElement("div");
     projectIcons.classList.add("project-icons");
 
-    const projectEditIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    const projectEditIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    projectEditIconSvg.classList.add("project-edit");
-    projectEditIconSvg.setAttribute("viewBox", "0 -960 960 960");
-    projectEditIconPath.setAttribute("d", "M186.67-186.67H235L680-631l-48.33-48.33-445 444.33v48.33ZM120-120v-142l559.33-558.33q9.34-9 21.5-14 12.17-5 25.5-5 12.67 0 25 5 12.34 5 22 14.33L821-772q10 9.67 14.5 22t4.5 24.67q0 12.66-4.83 25.16-4.84 12.5-14.17 21.84L262-120H120Zm652.67-606-46-46 46 46Zm-117 71-24-24.33L680-631l-24.33-24Z");
-    projectEditIconSvg.appendChild(projectEditIconPath);
-    projectEditIconSvg.setAttribute("data", `${attribute}`);
-
     const projectAddListIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectAddListIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
     projectAddListIconSvg.classList.add("project-add-list");
@@ -64,7 +56,6 @@ function createInitialProjectDomElement(title) {
     projectNavigation.appendChild(projectIconSvg);
     projectNavigation.appendChild(projectTitle);
 
-    projectIcons.appendChild(projectEditIconSvg);
     projectIcons.appendChild(projectAddListIconSvg);
 
     project.appendChild(projectNavigation);
@@ -73,7 +64,6 @@ function createInitialProjectDomElement(title) {
     projectWrapper.appendChild(project);
     projectWrapper.appendChild(todos);
 
-    projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
     projectAddListIconSvg.addEventListener("click", () => createTodoDom(project, todos));
     
     return projectWrapper;
