@@ -51,7 +51,7 @@ function createTodoDomElement(title) {
 }
 
 function createTodoDom(project, todos) {
-    const projectIndex = project.getAttribute("data");
+    const projectIndex = project.getAttribute("project");
     const todoIndex = projects[projectIndex].todos.length;
     let todoTitle;
     if (todoIndex == 0) {
@@ -65,14 +65,14 @@ function createTodoDom(project, todos) {
     todoDeleteIcon.addEventListener("click", () => removeTodoDom(todo, projectIndex));
     createTodo(todoTitle, projectIndex);
     todo.setAttribute("todo", `${todoIndex}`);
-    todo.setAttribute("data", `${projectIndex}`);
+    todo.setAttribute("project", `${projectIndex}`);
     todos.appendChild(todo);
 }
 
 function removeAllTodosDom(project) {
-    const projectIndex = project.getAttribute("data");
+    const projectIndex = project.getAttribute("project");
     removeAllTodos(projectIndex);
-    const todos = document.querySelector(`[data='${projectIndex}']`)
+    const todos = document.querySelector(`[project='${projectIndex}']`)
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
     console.table(projects[projectIndex].todos);
@@ -82,7 +82,7 @@ function removeTodoDom(todo, projectIndex) {
     let index = todo.getAttribute("todo");
     removeTodo(projectIndex, index);
     todo.remove();
-    const todoWrapper = document.querySelector(`.todos[data='${projectIndex}']`);
+    const todoWrapper = document.querySelector(`.todos[project='${projectIndex}']`);
     const todoElements = todoWrapper.querySelectorAll(".todo");
     updateAttribute(todoElements, index, "todo");
 }

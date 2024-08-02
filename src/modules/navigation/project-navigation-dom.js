@@ -23,11 +23,11 @@ function createInitialProjectDomElement(title) {
 
     const project = document.createElement("div");
     project.classList.add("project");
-    project.setAttribute("data", `${attribute}`);
+    project.setAttribute("project", `${attribute}`);
 
     const todos = document.createElement("div");
     todos.classList.add("todos");
-    todos.setAttribute("data", `${attribute}`);
+    todos.setAttribute("project", `${attribute}`);
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
@@ -51,7 +51,7 @@ function createInitialProjectDomElement(title) {
     projectAddListIconSvg.setAttribute("viewBox", "0 -960 960 960");
     projectAddListIconPath.setAttribute("d", "M446.67-446.67H200v-66.66h246.67V-760h66.66v246.67H760v66.66H513.33V-200h-66.66v-246.67Z");
     projectAddListIconSvg.appendChild(projectAddListIconPath);
-    projectAddListIconSvg.setAttribute("data", `${attribute}`);
+    projectAddListIconSvg.setAttribute("project", `${attribute}`);
     
     projectNavigation.appendChild(projectIconSvg);
     projectNavigation.appendChild(projectTitle);
@@ -87,11 +87,11 @@ function createProjectDomElement(title) {
 
     const project = document.createElement("div");
     project.classList.add("project");
-    project.setAttribute("data", `${attribute}`);
+    project.setAttribute("project", `${attribute}`);
 
     const todos = document.createElement("div");
     todos.classList.add("todos");
-    todos.setAttribute("data", `${attribute}`);
+    todos.setAttribute("project", `${attribute}`);
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
@@ -115,7 +115,7 @@ function createProjectDomElement(title) {
     projectEditIconSvg.setAttribute("viewBox", "0 -960 960 960");
     projectEditIconPath.setAttribute("d", "M186.67-186.67H235L680-631l-48.33-48.33-445 444.33v48.33ZM120-120v-142l559.33-558.33q9.34-9 21.5-14 12.17-5 25.5-5 12.67 0 25 5 12.34 5 22 14.33L821-772q10 9.67 14.5 22t4.5 24.67q0 12.66-4.83 25.16-4.84 12.5-14.17 21.84L262-120H120Zm652.67-606-46-46 46 46Zm-117 71-24-24.33L680-631l-24.33-24Z");
     projectEditIconSvg.appendChild(projectEditIconPath);
-    projectEditIconSvg.setAttribute("data", `${attribute}`);
+    projectEditIconSvg.setAttribute("project", `${attribute}`);
 
     const projectAddListIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectAddListIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -123,7 +123,7 @@ function createProjectDomElement(title) {
     projectAddListIconSvg.setAttribute("viewBox", "0 -960 960 960");
     projectAddListIconPath.setAttribute("d", "M446.67-446.67H200v-66.66h246.67V-760h66.66v246.67H760v66.66H513.33V-200h-66.66v-246.67Z");
     projectAddListIconSvg.appendChild(projectAddListIconPath);
-    projectAddListIconSvg.setAttribute("data", `${attribute}`);
+    projectAddListIconSvg.setAttribute("project", `${attribute}`);
 
     const projectDeleteIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectDeleteIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -131,7 +131,7 @@ function createProjectDomElement(title) {
     projectDeleteIconSvg.setAttribute("viewBox", "0 -960 960 960");
     projectDeleteIconPath.setAttribute("d", "M267.33-120q-27.5 0-47.08-19.58-19.58-19.59-19.58-47.09V-740H160v-66.67h192V-840h256v33.33h192V-740h-40.67v553.33q0 27-19.83 46.84Q719.67-120 692.67-120H267.33Zm425.34-620H267.33v553.33h425.34V-740Zm-328 469.33h66.66v-386h-66.66v386Zm164 0h66.66v-386h-66.66v386ZM267.33-740v553.33V-740Z");
     projectDeleteIconSvg.appendChild(projectDeleteIconPath);
-    projectDeleteIconSvg.setAttribute("data", `${attribute}`);
+    projectDeleteIconSvg.setAttribute("project", `${attribute}`);
     
     projectNavigation.appendChild(projectIconSvg);
     projectNavigation.appendChild(projectTitle);
@@ -248,7 +248,7 @@ function editProjectDomElement(project, projectDom, projectTitle) {
 
 function editProjectTitleDom(projectElement, projectTitle) {
     const projectDom = projectElement;
-    const index = projectDom.getAttribute("data");
+    const index = projectDom.getAttribute("project");
     const project = projects[index];
     const projectValues = editProjectDomElement(project, projectDom, projectTitle);
     const projectEdit = projectValues[0];
@@ -269,12 +269,12 @@ function discardChangesProjectTitleDom(projectDom, projectEdit) {
 }
 
 function removeProjectDom(projectDom, projectWrapper) {
-    const index = projectDom.getAttribute("data");
+    const index = projectDom.getAttribute("project");
     removeAllTodosDom(projectDom);
     removeProject(index);
     projectWrapper.remove();
-    const data = document.querySelectorAll("[data]");
-    updateAttribute(data, index, "data");
+    const project = document.querySelectorAll("[project]");
+    updateAttribute(project, index, "project");
 }
 
 function updateAttribute(element, index, attribute) {
