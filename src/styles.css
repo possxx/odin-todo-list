@@ -506,6 +506,11 @@ h3 {
     cursor: pointer;
 }
 
+.todo-edit-buttons {
+    display: flex;
+    gap: 4px;
+}
+
 .save-todo,
 .discard-todo {
     border-radius: 4px;
