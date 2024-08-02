@@ -479,6 +479,12 @@ h3 {
     color: var(--sky-950);
 }
 
+.checklist-item svg {
+    width: clamp(24px, 2.5vw, 32px);
+    fill: var(--sky-950);
+    cursor: pointer;
+}
+
 .checklist-add-item {
     display: flex;
     gap: 8px;
