@@ -39,10 +39,6 @@ p, h1, h2, h3, h4, h5, h6 {
     --sky-950: #082f49;
 }
 
-.page {
-    height: 200vh;
-}
-
 body {
     font-family: "open-sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 400;
@@ -249,14 +245,6 @@ h3 {
     cursor: pointer;
 }
 
-.change-title:hover,
-.discard-changes:hover,
-.save-project:hover,
-.discard-project:hover {
-    background-color: var(--sky-950);
-    color: var(--sky-50);
-}
-
 .todos {
     display: flex;
     flex-direction: column;
@@ -287,6 +275,10 @@ h3 {
     align-items: center;
 }
 
+.todo:last-child {
+    padding-bottom: 4px;
+}
+
 .todo-icons {
     display: flex;
     gap: 4px;
@@ -306,9 +298,216 @@ h3 {
 }
 
 .content {
-    border: 1px solid var(--sky-950);
     margin-left: clamp(320px, 34vw, 380px);
+    background-color: var(--sky-50);
+    min-height: 100vh;
     height: 100%;
+}
+
+.todo-edit-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    width: clamp(400px, 70%, 800px);
+}
+
+.todo-edit-title,
+.todo-edit-description,
+.todo-edit-due-date,
+.todo-low-priority,
+.todo-medium-priority,
+.todo-high-priority {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-edit-content {
+    color: var(--sky-950);
+    user-select: none;
+}
+
+.todo-edit-title input {
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    background-color: transparent;
+    color: var(--sky-950);
+    width: 100%;
+}
+
+.todo-edit-title {
+    align-items: center;
+}
+
+.todo-edit-description {
+    align-items: flex-start;
+}
+
+.todo-edit-title input:focus,
+.todo-edit-description textarea:focus {
+    outline: none;
+}
+
+.todo-edit-title input::placeholder,
+.todo-edit-description textarea::placeholder {
+    color: var(--sky-950);
+}
+
+.todo-edit-description textarea {
+    resize: none;
+    color: var(--sky-950);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    width: 100%;
+    height: 100px;
+}
+
+.todo-edit-due-date {
+    align-items: center;
+}
+
+.todo-edit-due-date input {
+    border: 1px solid var(--sky-950);
+    background: transparent;
+    color: var(--sky-950);
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+::-webkit-calendar-picker-indicator { 
+    cursor: pointer; 
+}
+
+::-webkit-calendar-picker-indicator {
+    background-image: url('data:image/svg+xml;utf8,<svg fill="rgb(8,47,73)" xmlns="http://www.w3.org/2000/svg" width="16" height="15" viewBox="0 0 24 24"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z"/></svg>');
+}
+
+.todo-edit-due-date input:focus {
+    outline: none;
+}
+
+.todo-edit-priority fieldset,
+.todo-edit-checklist fieldset {
+    border: 1px solid var(--sky-950);
+    border-radius: 4px;
+}
+
+.todo-low-priority,
+.todo-medium-priority,
+.todo-high-priority {
+    position: relative;
+    cursor: pointer;
+    padding-left: 24px;
+}
+
+.todo-low-priority input,
+.todo-medium-priority input,
+.todo-high-priority input {
+    position: absolute;
+    opacity: 0;
+    height: 16px;
+    width: 16px;
+    top: 7px;
+    left: 0;
+}
+
+.todo-low-priority label,
+.todo-medium-priority label,
+.todo-high-priority label {
+    order: 1;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid var(--sky-950);
+    border-radius: 50%;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-low-priority input:checked ~ .checkmark:after,
+.todo-medium-priority input:checked ~ .checkmark:after,
+.todo-high-priority input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.todo-low-priority .checkmark:after,
+.todo-medium-priority .checkmark:after,
+.todo-high-priority .checkmark:after {
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--sky-950);
+}
+
+.checklist-item {
+    display: flex;
+    gap: 8px;
+}
+
+.checklist-item label {
+    white-space: nowrap;
+}
+
+.checklist-item input {
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    background-color: transparent;
+    color: var(--sky-950);
+    width: 90%;
+}
+
+.checklist-item input:focus {
+    outline: none;
+}
+
+.checklist-item input::placeholder {
+    color: var(--sky-950);
+}
+
+.checklist-add-item {
+    display: flex;
+    gap: 8px;
+}
+
+.checklist-add-item svg {
+    width: clamp(24px, 2.5vw, 32px);
+    min-width: 24px;
+    fill: var(--sky-950);
+}
+
+.todo-edit-checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-add-item {
+    cursor: pointer;
+}
+
+.save-todo,
+.discard-todo {
+    border-radius: 4px;
+    border: none;
+    padding: 4px 8px;
+    background-color: var(--sky-950);
+    color: var(--sky-50);
+    cursor: pointer;
 }
 
 .display-none {
