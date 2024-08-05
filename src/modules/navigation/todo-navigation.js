@@ -10,7 +10,7 @@ function Todo(title, description, dueDate, priority, ...checklist) {
 function createTodo(projectIndex) {
     const title = "";
     const description = "";
-    const dueDate = format(new Date(), "dd-MM-yyyy");
+    const dueDate = format(new Date(), "yyyy-MM-dd");
     const priority = "low";
 
     projects[projectIndex].todos.push(Todo(title, description, dueDate, priority));
