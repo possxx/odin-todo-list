@@ -4,7 +4,7 @@ import { updateAttribute } from "./project-navigation-dom.js";
 
 export { createTodoDom, removeAllTodosDom };
 
-function createTodoDomElement(title) {
+function createTodoDomElement(projectIndex, todoIndex) {
     const todo = document.createElement("div");
     todo.classList.add("todo");
 
@@ -19,7 +19,7 @@ function createTodoDomElement(title) {
 
     const todoTitle = document.createElement("div");
     todoTitle.classList.add("todo-title");
-    todoTitle.innerText = title;
+    todoTitle.innerText = projects[projectIndex].todos[todoIndex].title;
 
     const todoIcons = document.createElement("div");
     todoIcons.classList.add("todo-icons");
@@ -53,17 +53,11 @@ function createTodoDomElement(title) {
 function createTodoDom(project, todos) {
     const projectIndex = project.getAttribute("project");
     const todoIndex = projects[projectIndex].todos.length;
-    let todoTitle;
-    if (todoIndex == 0) {
-        todoTitle = "Untitled";
-    } else {
-        todoTitle = `Untitled ${todoIndex}`;
-    }
-    const todoValues = createTodoDomElement(todoTitle);
+    createTodo(projectIndex);
+    const todoValues = createTodoDomElement(projectIndex, todoIndex);
     const todo = todoValues[0];
     const todoDeleteIcon = todoValues[1];
     todoDeleteIcon.addEventListener("click", () => removeTodoDom(todo, projectIndex));
-    createTodo(todoTitle, projectIndex);
     todo.setAttribute("todo", `${todoIndex}`);
     todo.setAttribute("project", `${projectIndex}`);
     todos.appendChild(todo);
