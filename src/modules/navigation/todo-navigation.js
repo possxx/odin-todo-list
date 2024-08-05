@@ -1,4 +1,5 @@
 import { projects } from "./project-navigation.js";
+import { format } from "date-fns";
 
 export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority };
 
@@ -6,8 +7,13 @@ function Todo(title, description, dueDate, priority, ...checklist) {
     return { title, description, dueDate, priority, checklist };
 }
 
-function createTodo(title, index) {
-    projects[index].todos.push(Todo(title));
+function createTodo(projectIndex) {
+    const title = "";
+    const description = "";
+    const dueDate = format(new Date(), "dd-MM-yyyy");
+    const priority = "low";
+
+    projects[projectIndex].todos.push(Todo(title, description, dueDate, priority));
 }
 
 function removeAllTodos(projectIndex) {
