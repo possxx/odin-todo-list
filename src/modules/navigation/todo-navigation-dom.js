@@ -1,7 +1,7 @@
 import { projects } from "./project-navigation.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
-import { createInitialTodoEditContentElement } from "../content/todo-edit-content.js";
+import { createInitialTodoEditContentElement, content, contentChild } from "../content/todo-edit-content.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -71,6 +71,10 @@ function removeAllTodosDom(project) {
     const todos = document.querySelector(`[project='${projectIndex}']`)
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
+    const todoEditContent = content.querySelector(".todo-edit-content");
+    if (todoEditContent.getAttribute("project") == projectIndex) {
+        todoEditContent.replaceWith(contentChild);
+    }
 }
 
 function removeTodoDom(todo, projectIndex) {
@@ -80,6 +84,10 @@ function removeTodoDom(todo, projectIndex) {
     const todoWrapper = document.querySelector(`.todos[project='${projectIndex}']`);
     const todoElements = todoWrapper.querySelectorAll(".todo");
     updateAttribute(todoElements, index, "todo");
+    const todoEditContent = content.querySelector(".todo-edit-content");
+    if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
+        todoEditContent.replaceWith(contentChild);
+    }
 }
 
 
