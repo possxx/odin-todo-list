@@ -1,6 +1,7 @@
 import { projects } from "./project-navigation.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
+import { createInitialTodoEditContentElement } from "../content/todo-edit-content.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -61,6 +62,7 @@ function createTodoDom(project, todos) {
     todo.setAttribute("todo", `${todoIndex}`);
     todo.setAttribute("project", `${projectIndex}`);
     todos.appendChild(todo);
+    createInitialTodoEditContentElement(projectIndex, todoIndex);
 }
 
 function removeAllTodosDom(project) {
@@ -69,7 +71,6 @@ function removeAllTodosDom(project) {
     const todos = document.querySelector(`[project='${projectIndex}']`)
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
-    console.table(projects[projectIndex].todos);
 }
 
 function removeTodoDom(todo, projectIndex) {
