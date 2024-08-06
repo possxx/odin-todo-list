@@ -1,6 +1,5 @@
 import { projects } from "../navigation/project-navigation";
 import { removeTodo } from "../navigation/todo-navigation";
-import { updateAttribute } from "../navigation/project-navigation-dom";
 
 export { createInitialTodoEditContentElement, content, contentChild };
 
@@ -209,7 +208,7 @@ function addChecklistItemElement() {
 }
 
 function removeChecklistItemElement(element) {
-    const checklistCount = element.getAttribute("checklist");
+    const checklistCount = +(element.getAttribute("checklist"));
     element.remove();
     updateChecklistItemElementCount(checklistCount);
 }
