@@ -1,7 +1,7 @@
 import { projects } from "./project-navigation.js";
 import { format } from "date-fns";
 
-export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority };
+export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority, saveChecklist };
 
 function Todo(title, description, dueDate, priority, ...checklists) {
     return { title, description, dueDate, priority, checklists };
