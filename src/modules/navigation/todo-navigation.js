@@ -3,8 +3,8 @@ import { format } from "date-fns";
 
 export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority };
 
-function Todo(title, description, dueDate, priority, ...checklist) {
-    return { title, description, dueDate, priority, checklist };
+function Todo(title, description, dueDate, priority, ...checklists) {
+    return { title, description, dueDate, priority, checklists };
 }
 
 function createTodo(projectIndex) {
@@ -38,4 +38,12 @@ function editTodoDueDate(projectIndex, todoIndex, newDueDate) {
 
 function editTodoPriority(projectIndex, todoIndex, newPriority) {
     projects[projectIndex].todos[todoIndex].priority = newPriority;
+}
+
+function Checklist(title, status) {
+    return { title, status };
+}
+
+function saveChecklist(projectIndex, todoIndex, title) {
+    projects[projectIndex].todos[todoIndex].checklists.push(Checklist(title));
 }
