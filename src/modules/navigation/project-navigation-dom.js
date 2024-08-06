@@ -1,6 +1,5 @@
 import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
-import { createTodo } from "./todo-navigation.js";
 
 export { updateAttribute, createInitialProjectDom };
 
