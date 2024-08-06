@@ -89,11 +89,13 @@ function removeTodoDom(todo, projectIndex) {
     const todoElements = todoWrapper.querySelectorAll(".todo");
     updateAttribute(todoElements, index, "todo");
     const todoEditContent = content.querySelector(".todo-edit-content");
+    const todoEditContentElements = [todoEditContent];
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
             todoEditContent.replaceWith(contentChild);
         }
     }
+    updateAttribute(todoEditContentElements, index, "todo");
 }
 
 
