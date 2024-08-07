@@ -33,6 +33,8 @@ function createTodoRenderContentElement(projectIndex, todoIndex) {
 
     const todoRenderContent = document.createElement("div");
     todoRenderContent.classList.add("todo-render-content");
+    todoRenderContent.setAttribute("project", `${projectIndex}`);
+    todoRenderContent.setAttribute("todo", `${todoIndex}`);
     
     const todoRenderHeader = document.createElement("div");
     todoRenderHeader.classList.add("todo-render-header");
