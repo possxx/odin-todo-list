@@ -1,5 +1,6 @@
 import { projects } from "../navigation/project-navigation";
 import { removeTodo, saveChecklist } from "../navigation/todo-navigation";
+import { renderTodoContent } from "./todo-render-content";
 
 export { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild };
 
@@ -332,7 +333,7 @@ function createTodoEditContentElement(projectIndex, todoIndex) {
     const discardTodoButton = document.createElement("button");
     discardTodoButton.innerText = "Discard Changes";
     discardTodoButton.classList.add("discard-todo");
-    discardTodoButton.addEventListener("click", () => deleteTodoEditContentElement(todoEditContent, projectIndex, todoIndex));
+    discardTodoButton.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
     todoEditButtons.appendChild(saveTodoButton);
     todoEditButtons.appendChild(discardTodoButton);
 
