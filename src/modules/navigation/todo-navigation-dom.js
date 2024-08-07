@@ -94,8 +94,8 @@ function removeTodoDom(todo, projectIndex) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
             todoEditContent.replaceWith(contentChild);
         }
+        updateAttribute(todoEditContentElements, index, "todo");
     }
-    updateAttribute(todoEditContentElements, index, "todo");
 }
 
 
