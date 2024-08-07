@@ -74,9 +74,15 @@ function removeAllTodosDom(project) {
     const todosChildren = todos.querySelectorAll("*");
     todosChildren.forEach(element => element.remove());
     const todoEditContent = content.querySelector(".todo-edit-content");
+    const todoRenderContent = content.querySelector(".todo-render-content");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex) {
             todoEditContent.replaceWith(contentChild);
+        }
+    }
+    if (todoRenderContent) {
+        if (todoRenderContent.getAttribute("project") == projectIndex) {
+            todoRenderContent.replaceWith(contentChild);
         }
     }
 }
@@ -90,11 +96,19 @@ function removeTodoDom(todo, projectIndex) {
     updateAttribute(todoElements, index, "todo");
     const todoEditContent = content.querySelector(".todo-edit-content");
     const todoEditContentElements = [todoEditContent];
+    const todoRenderContent = content.querySelector(".todo-render-content");
+    const todoRenderContentElements = [todoRenderContent];
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
             todoEditContent.replaceWith(contentChild);
         }
         updateAttribute(todoEditContentElements, index, "todo");
+    }
+    if (todoRenderContent) {
+        if (todoRenderContent.getAttribute("project") == projectIndex && todoRenderContent.getAttribute("todo") == index) {
+            todoRenderContent.replaceWith(contentChild);
+        }
+        updateAttribute(todoRenderContentElements, index, "todo");
     }
 }
 
