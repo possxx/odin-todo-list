@@ -49,7 +49,7 @@ function createTodoDomElement(projectIndex, todoIndex) {
     todo.appendChild(todoNavigation);
     todo.appendChild(todoIcons);
 
-    todo.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
+    todoNavigation.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
 
     return [todo, todoDeleteIconSvg, todoEditIconSvg];
 }
