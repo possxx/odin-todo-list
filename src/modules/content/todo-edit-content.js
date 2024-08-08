@@ -470,6 +470,7 @@ function saveInitialTodoEditContentElement(projectIndex, todoIndex) {
     })
 
     changeTodoTitleDom(title, projectIndex, todoIndex);
+    renderTodoContent(projectIndex, todoIndex);
 }
 
 function saveTodoEditContentElement(projectIndex, todoIndex) {
@@ -503,6 +504,7 @@ function saveTodoEditContentElement(projectIndex, todoIndex) {
     })
 
     changeTodoTitleDom(title, projectIndex, todoIndex);
+    renderTodoContent(projectIndex, todoIndex);
 }
 
 function deleteTodoEditContentElement(element, projectIndex, todoIndex) {
