@@ -521,6 +521,103 @@ h3 {
     cursor: pointer;
 }
 
+.todo-render-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    width: clamp(400px, 70%, 800px);
+}
+
+.todo-render-meta {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    user-select: none;
+}
+
+.todo-render-due-date {
+    font-size: clamp(12px, 1.35vw, 16px);
+}
+
+.todo-render-priority {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.todo-render-priority svg {
+    width: 20px;
+    fill: var(--sky-950);
+    min-width: 20px;
+}
+
+.todo-render-priority p {
+    font-size: clamp(12px, 1.35vw, 16px);
+    white-space: nowrap;
+}
+
+.todo-render-checklist fieldset {
+    border: 1px solid var(--sky-950);
+    border-radius: 4px;
+}
+
+.todo-render-checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-render-checklist-item {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 24px;
+}
+
+.todo-render-checklist-item input {
+    order: -1;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid var(--sky-950);
+}
+
+.checkbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-render-checklist-item input:checked ~ .checkbox-checkmark:after {
+    display: block;
+}
+
+.todo-render-checklist-item .checkbox-checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 11px;
+    border: solid var(--sky-950);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
 .display-none {
     display: none;
 }
