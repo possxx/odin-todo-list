@@ -2,6 +2,7 @@ import { projects } from "./project-navigation.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
 import { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild } from "../content/todo-edit-content.js";
+import { renderTodoContent } from "../content/todo-render-content.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -47,6 +48,8 @@ function createTodoDomElement(projectIndex, todoIndex) {
 
     todo.appendChild(todoNavigation);
     todo.appendChild(todoIcons);
+
+    todo.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
 
     return [todo, todoDeleteIconSvg, todoEditIconSvg];
 }
