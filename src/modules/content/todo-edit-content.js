@@ -488,8 +488,11 @@ function saveTodoEditContentElement(projectIndex, todoIndex) {
     let oldChecklist = [];
     projects[projectIndex].todos[todoIndex].checklists.forEach(item => {
         let checklistTitle = item.title;
-        oldChecklist.push(checklistTitle);
+        let checklistStatus = item.status;
+        let checklistItem = { checklistTitle, checklistStatus };
+        oldChecklist.push(checklistItem);
     })
+    console.log(oldChecklist);
 
     projects[projectIndex].todos[todoIndex].checklists.splice(0);
 
@@ -497,7 +500,7 @@ function saveTodoEditContentElement(projectIndex, todoIndex) {
         let checklistTitle = item.value;
         saveChecklist(projectIndex, todoIndex, checklistTitle);
         oldChecklist.forEach(item => {
-            if (item == checklistTitle) {
+            if (item.checklistTitle == checklistTitle && item.checklistStatus == "checked") {
                 projects[projectIndex].todos[todoIndex].checklists[index].status = "checked";
             }
         })
