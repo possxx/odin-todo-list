@@ -12,6 +12,8 @@ function createTodoDomElement(projectIndex, todoIndex) {
 
     const todoNavigation = document.createElement("div");
     todoNavigation.classList.add("todo-navigation");
+    todoNavigation.setAttribute("project", projectIndex);
+    todoNavigation.setAttribute("todo", todoIndex);
 
     const todoIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const todoIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -49,7 +51,7 @@ function createTodoDomElement(projectIndex, todoIndex) {
     todo.appendChild(todoNavigation);
     todo.appendChild(todoIcons);
 
-    todoNavigation.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
+    todoNavigation.addEventListener("click", () => renderTodoContentNavigation(todoNavigation));
 
     return [todo, todoDeleteIconSvg, todoEditIconSvg];
 }
@@ -95,7 +97,7 @@ function removeTodoDom(todo, projectIndex) {
     removeTodo(projectIndex, index);
     todo.remove();
     const todoWrapper = document.querySelector(`.todos[project='${projectIndex}']`);
-    const todoElements = todoWrapper.querySelectorAll(".todo");
+    const todoElements = todoWrapper.querySelectorAll("[todo]");
     updateAttribute(todoElements, index, "todo");
     const todoEditContent = content.querySelector(".todo-edit-content");
     const todoEditContentElements = [todoEditContent];
@@ -113,6 +115,12 @@ function removeTodoDom(todo, projectIndex) {
         }
         updateAttribute(todoRenderContentElements, index, "todo");
     }
+}
+
+function renderTodoContentNavigation(element) {
+    const projectIndex = element.getAttribute("project");
+    const todoIndex = element.getAttribute("todo");
+    renderTodoContent(projectIndex, todoIndex);
 }
 
 
