@@ -159,6 +159,7 @@ function createTodoRenderChecklistItemElement(checklists) {
             todoRenderChecklistItemLabel.classList.add("todo-render-checklist-item");
             todoRenderChecklistItemLabel.setAttribute("for", `checklist-${index}`);
             todoRenderChecklistItemLabel.innerText = item.title;
+            todoRenderChecklistItemLabel.addEventListener("click", () => setChecklistStatus(item, todoRenderChecklistItemInput));
             let todoRenderChecklistItemInput = document.createElement("input");
             if (item.status == "checked") {
                 todoRenderChecklistItemInput.setAttribute("checked", "");
@@ -174,4 +175,12 @@ function createTodoRenderChecklistItemElement(checklists) {
         }
     })
     return todoRenderChecklistItemElements;
+}
+
+function setChecklistStatus(checklist, input) {
+    if (input.checked) {
+        checklist.status = "checked";
+    } else {
+        checklist.status = "";
+    }
 }
