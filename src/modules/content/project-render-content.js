@@ -1,5 +1,6 @@
 import { projects } from "../navigation/project-navigation";
 import { content } from "./todo-edit-content";
+import { renderTodoContent } from "./todo-render-content";
 
 export { renderProjectContent };
 
@@ -74,6 +75,7 @@ function createTodosRenderContentElement(todos, projectIndex) {
         renderTodoItem.classList.add("render-todo-item");
         renderTodoItem.setAttribute("project", projectIndex);
         renderTodoItem.setAttribute("todo", todoIndex);
+        renderTodoItem.addEventListener("click", () => renderTodoContent(projectIndex, todoIndex));
 
         const renderTodoMeta = document.createElement("div");
         renderTodoMeta.classList.add("render-todo-meta");
