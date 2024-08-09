@@ -3,6 +3,7 @@ import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
 import { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild } from "../content/todo-edit-content.js";
 import { renderTodoContent } from "../content/todo-render-content.js";
+import { renderProjectContent } from "../content/project-render-content.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -103,6 +104,8 @@ function removeTodoDom(todo, projectIndex) {
     const todoEditContentElements = [todoEditContent];
     const todoRenderContent = content.querySelector(".todo-render-content");
     const todoRenderContentElements = [todoRenderContent];
+    const projectRenderContent = content.querySelector(".project-render-content");
+    const project = document.querySelector(`.project [project='${projectIndex}']`);
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
             todoEditContent.replaceWith(contentChild);
@@ -114,6 +117,9 @@ function removeTodoDom(todo, projectIndex) {
             todoRenderContent.replaceWith(contentChild);
         }
         updateAttribute(todoRenderContentElements, index, "todo");
+    }
+    if (projectRenderContent && projectRenderContent.getAttribute("project") == projectIndex) {
+        renderProjectContent(project);
     }
 }
 
