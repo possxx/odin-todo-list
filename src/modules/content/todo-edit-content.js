@@ -148,7 +148,7 @@ function createInitialTodoEditContentElement(projectIndex, todoIndex) {
     const saveTodoButton = document.createElement("button");
     saveTodoButton.innerText = "Save Todo";
     saveTodoButton.classList.add("save-todo");
-    saveTodoButton.addEventListener("click", () => saveInitialTodoEditContentElement(projectIndex, todoIndex));
+    saveTodoButton.addEventListener("click", () => saveInitialTodoEditContentElement());
     const discardTodoButton = document.createElement("button");
     discardTodoButton.innerText = "Delete Todo";
     discardTodoButton.classList.add("discard-todo");
@@ -329,7 +329,7 @@ function createTodoEditContentElement(projectIndex, todoIndex) {
     const saveTodoButton = document.createElement("button");
     saveTodoButton.innerText = "Save Changes";
     saveTodoButton.classList.add("save-todo");
-    saveTodoButton.addEventListener("click", () => saveTodoEditContentElement(projectIndex, todoIndex));
+    saveTodoButton.addEventListener("click", () => saveTodoEditContentElement());
     const discardTodoButton = document.createElement("button");
     discardTodoButton.innerText = "Discard Changes";
     discardTodoButton.classList.add("discard-todo");
@@ -450,7 +450,10 @@ function changeTodoTitleDom(title, projectIndex, todoIndex) {
     todoTitle.innerText = title;
 }
 
-function saveInitialTodoEditContentElement(projectIndex, todoIndex) {
+function saveInitialTodoEditContentElement() {
+    const projectIndex = content.querySelector(".todo-edit-content").getAttribute("project");
+    const todoIndex = content.querySelector(".todo-edit-content").getAttribute("todo");
+
     const title = document.querySelector("input[name='todo_title']").value;
     const description = document.querySelector("textarea[name='todo_description']").value;
     const dueDate = document.querySelector("input[name='todo_dueDate']").value;
@@ -473,7 +476,10 @@ function saveInitialTodoEditContentElement(projectIndex, todoIndex) {
     renderTodoContent(projectIndex, todoIndex);
 }
 
-function saveTodoEditContentElement(projectIndex, todoIndex) {
+function saveTodoEditContentElement() {
+    const projectIndex = content.querySelector(".todo-edit-content").getAttribute("project");
+    const todoIndex = content.querySelector(".todo-edit-content").getAttribute("todo");
+
     const title = document.querySelector("input[name='todo_title']").value;
     const description = document.querySelector("textarea[name='todo_description']").value;
     const dueDate = document.querySelector("input[name='todo_dueDate']").value;
