@@ -225,7 +225,8 @@ function editProjectDomElement(project, projectDom, projectTitle) {
     projectTitleInput.setAttribute("autocomplete", "off");
     projectTitleInput.setAttribute("maxlength", "20");
     projectTitleInput.setAttribute("name", "edit_project_title")
-    projectTitleInput.setAttribute("placeholder", `${project.title}`);
+    projectTitleInput.setAttribute("placeholder", "(Max 20 char.)");
+    projectTitleInput.value = project.title;
 
     projectEditTitleInput.appendChild(projectTitleInput);
 
