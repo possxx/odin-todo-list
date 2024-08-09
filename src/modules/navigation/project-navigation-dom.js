@@ -1,6 +1,7 @@
 import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
 import { renderProjectContent } from "../content/project-render-content.js";
+import { content } from "../content/todo-edit-content.js";
 
 export { updateAttribute, createInitialProjectDom };
 
@@ -265,6 +266,13 @@ function changeProjectTitleDom(project, projectDom, projectTitle, projectEdit, i
     editProject(project, title);
     projectTitle.innerText = title;
     projectEdit.replaceWith(projectDom);
+    
+    const projectIndex = projectDom.getAttribute("project");
+    const projectContent = content.querySelector(".project-render-content");
+
+    if (projectContent && projectContent.getAttribute("project") == projectIndex) {
+        renderProjectContent(projectDom);
+    }
 }
 
 function discardChangesProjectTitleDom(projectDom, projectEdit) {
