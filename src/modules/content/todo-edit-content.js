@@ -152,7 +152,7 @@ function createInitialTodoEditContentElement(projectIndex, todoIndex) {
     const discardTodoButton = document.createElement("button");
     discardTodoButton.innerText = "Delete Todo";
     discardTodoButton.classList.add("discard-todo");
-    discardTodoButton.addEventListener("click", () => deleteTodoEditContentElement(todoEditContent, projectIndex, todoIndex));
+    discardTodoButton.addEventListener("click", () => deleteTodoEditContentElement(todoEditContent));
     todoEditButtons.appendChild(saveTodoButton);
     todoEditButtons.appendChild(discardTodoButton);
 
@@ -516,7 +516,10 @@ function saveTodoEditContentElement() {
     renderTodoContent(projectIndex, todoIndex);
 }
 
-function deleteTodoEditContentElement(element, projectIndex, todoIndex) {
+function deleteTodoEditContentElement(element) {
+    const projectIndex = content.querySelector(".todo-edit-content").getAttribute("project");
+    const todoIndex = content.querySelector(".todo-edit-content").getAttribute("todo");
+
     const todoDomElement = document.querySelector(`.todo[todo="${todoIndex}"][project="${projectIndex}"]`);
     removeTodo(projectIndex, todoIndex);
     element.replaceWith(contentChild);
