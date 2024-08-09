@@ -630,14 +630,14 @@ h3 {
     border-bottom: 1px solid var(--sky-950);
 }
 
-.project-render-todos {
+.render-todos {
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 16px;
     row-gap: 16px;
 }
 
-.project-render-todo-item {
+.render-todo-item {
     padding: 16px;
     border: 1px solid var(--sky-950);
     border-radius: 16px;
@@ -645,32 +645,36 @@ h3 {
     cursor: pointer;
 }
 
-.project-render-todo-meta {
+.render-todo-meta {
     display: flex;
     gap: 16px;
     align-items: center;
     user-select: none;
 }
 
-.project-render-todo-due-date {
+.render-todo-due-date {
     font-size: clamp(12px, 1.35vw, 16px);
 }
 
-.project-render-todo-priority {
+.render-todo-priority {
     display: flex;
     gap: 4px;
     align-items: center;
 }
 
-.project-render-todo-priority svg {
+.render-todo-priority svg {
     width: 20px;
     fill: var(--sky-950);
     min-width: 20px;
 }
 
-.project-render-todo-priority p {
+.render-todo-priority p {
     font-size: clamp(12px, 1.35vw, 16px);
     white-space: nowrap;
+}
+
+.render-todo-description p {
+    word-break: break-all;
 }
 
 .display-none {
