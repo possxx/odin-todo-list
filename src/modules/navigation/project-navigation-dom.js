@@ -1,5 +1,6 @@
 import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
+import { renderProjectContent } from "../content/project-render-content.js";
 
 export { updateAttribute, createInitialProjectDom };
 
@@ -31,6 +32,7 @@ function createInitialProjectDomElement(title) {
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
+    projectNavigation.addEventListener("click", () => renderProjectContent(project));
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -95,6 +97,7 @@ function createProjectDomElement(title) {
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
+    projectNavigation.addEventListener("click", () => renderProjectContent(project));
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
