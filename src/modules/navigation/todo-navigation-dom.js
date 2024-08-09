@@ -81,6 +81,7 @@ function removeAllTodosDom(project) {
     todosChildren.forEach(element => element.remove());
     const todoEditContent = content.querySelector(".todo-edit-content");
     const todoRenderContent = content.querySelector(".todo-render-content");
+    const projectRenderContent = content.querySelector(".project-render-content");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex) {
             todoEditContent.replaceWith(contentChild);
@@ -90,6 +91,9 @@ function removeAllTodosDom(project) {
         if (todoRenderContent.getAttribute("project") == projectIndex) {
             todoRenderContent.replaceWith(contentChild);
         }
+    }
+    if (projectRenderContent && projectRenderContent.getAttribute("project") == projectIndex) {
+        projectRenderContent.replaceWith(contentChild);
     }
 }
 
