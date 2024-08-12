@@ -2,7 +2,7 @@ import { projects } from "../navigation/project-navigation";
 import { content } from "./todo-edit-content";
 import { renderTodoContent } from "./todo-render-content";
 
-export { renderProjectContent };
+export { renderProjectContent, shortenTodoDescription, createRenderTodoPriorityElement };
 
 function createProjectRenderContentElement(project) {
     const projectIndex = project.getAttribute("project");
