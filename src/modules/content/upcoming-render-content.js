@@ -22,7 +22,7 @@ function filterTodosUpcoming() {
     return todosUpcoming;
 }
 
-function createTodayRenderContentElement() {
+function createUpcomingRenderContentElement() {
     let heading = "Upcoming";
     let todos = filterTodosUpcoming();
 
@@ -48,5 +48,5 @@ function createTodayRenderContentElement() {
 
 function renderUpcomingContent() {
     const contentChild = content.children[0];
-    contentChild.replaceWith(createTodayRenderContentElement());
+    contentChild.replaceWith(createUpcomingRenderContentElement());
 }
