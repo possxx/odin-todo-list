@@ -1,8 +1,6 @@
 import { projects } from "../navigation/project-navigation";
 import { content } from "./todo-edit-content";
-import { renderTodoContent } from "./todo-render-content";
 import { isFuture } from "date-fns";
-import { shortenTodoDescription, createRenderTodoPriorityElement } from "./project-render-content";
 import { createTodosRenderContentElement } from "./today-render-content";
 
 export { renderUpcomingContent };

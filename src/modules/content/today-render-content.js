@@ -3,6 +3,7 @@ import { content } from "./todo-edit-content";
 import { renderTodoContent } from "./todo-render-content";
 import { isToday } from "date-fns";
 import { shortenTodoDescription, createRenderTodoPriorityElement } from "./project-render-content";
+import { format } from "date-fns";
 
 export { renderTodayContent, createTodosRenderContentElement };
 
@@ -71,7 +72,7 @@ function createTodosRenderContentElement(todos) {
         }
         let dueDate;
         if (todo.dueDate) {
-            dueDate = todo.dueDate;
+            dueDate = format(todo.dueDate, "dd.MM.yyyy");
         } else {
             dueDate = "-";
         } 

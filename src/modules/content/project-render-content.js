@@ -1,6 +1,7 @@
 import { projects } from "../navigation/project-navigation";
 import { content } from "./todo-edit-content";
 import { renderTodoContent } from "./todo-render-content";
+import { format } from "date-fns";
 
 export { renderProjectContent, shortenTodoDescription, createRenderTodoPriorityElement };
 
@@ -65,7 +66,7 @@ function createTodosRenderContentElement(todos, projectIndex) {
         }
         let dueDate;
         if (todo.dueDate) {
-            dueDate = todo.dueDate;
+            dueDate = format(todo.dueDate, "dd.MM.yyyy");
         } else {
             dueDate = "-";
         } 
