@@ -5,6 +5,7 @@ import { createInitialTodoEditContentElement, createTodoEditContentElement, cont
 import { renderTodoContent } from "../content/todo-render-content.js";
 import { renderProjectContent } from "../content/project-render-content.js";
 import { renderTodayContent } from "../content/today-render-content.js";
+import { renderUpcomingContent } from "../content/upcoming-render-content.js";
 
 export { createTodoDom, removeAllTodosDom };
 
@@ -84,6 +85,7 @@ function removeAllTodosDom(project) {
     const todoRenderContent = content.querySelector(".todo-render-content");
     const projectRenderContent = content.querySelector(".project-render-content");
     const todayRenderContent = content.querySelector(".today-render-content");
+    const upcomingRenderContent = content.querySelector(".upcoming-render-content");
     const renderTodos = content.querySelectorAll(".render-todos .render-todo-item");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex) {
@@ -105,6 +107,13 @@ function removeAllTodosDom(project) {
             }
         })
     }
+    if (upcomingRenderContent) {
+        renderTodos.forEach(todo => {
+            if (todo.getAttribute("project") == projectIndex) {
+                renderUpcomingContent();
+            }
+        })
+    }
 }
 
 function removeTodoDom(todo, projectIndex) {
@@ -121,6 +130,7 @@ function removeTodoDom(todo, projectIndex) {
     const projectRenderContent = content.querySelector(".project-render-content");
     const project = document.querySelector(`.project [project='${projectIndex}']`);
     const todayRenderContent = content.querySelector(".today-render-content");
+    const upcomingRenderContent = content.querySelector(".upcoming-render-content");
     const renderTodos = document.querySelectorAll(".render-todos .render-todo-item");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
@@ -141,6 +151,13 @@ function removeTodoDom(todo, projectIndex) {
         renderTodos.forEach(todo => {
             if (todo.getAttribute("project") == projectIndex && todo.getAttribute("todo") == index) {
                 renderTodayContent();
+            }
+        })
+    }
+    if (upcomingRenderContent) {
+        renderTodos.forEach(todo => {
+            if (todo.getAttribute("project") == projectIndex && todo.getAttribute("todo") == index) {
+                renderUpcomingContent();
             }
         })
     }
