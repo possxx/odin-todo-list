@@ -620,7 +620,10 @@ h3 {
 
 .project-render-content,
 .today-render-content,
-.upcoming-render-content {
+.upcoming-render-content,
+.high-priority-render-content,
+.medium-priority-render-content,
+.low-priority-render-content {
     padding: 20px 16px;
     width: clamp(400px, 70%, 800px);
     display: flex;
