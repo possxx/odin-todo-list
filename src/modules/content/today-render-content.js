@@ -28,7 +28,7 @@ function createTodayRenderContentElement() {
     let todos = filterTodosToday();
 
     const projectRenderContent = document.createElement("div");
-    projectRenderContent.classList.add("project-render-content");
+    projectRenderContent.classList.add("today-render-content");
 
     const projectRenderHeadingContainer = document.createElement("div");
     projectRenderHeadingContainer.classList.add("project-render-heading");
