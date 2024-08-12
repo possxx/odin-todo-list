@@ -15,6 +15,7 @@ module.exports = {
     "./src/modules/content/todo-render-content.js",
     "./src/modules/content/project-render-content.js",
     "./src/modules/content/today-render-content.js",
+    "./src/modules/content/upcoming-render-content.js",
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
