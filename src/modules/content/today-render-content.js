@@ -4,7 +4,7 @@ import { renderTodoContent } from "./todo-render-content";
 import { isToday } from "date-fns";
 import { shortenTodoDescription, createRenderTodoPriorityElement } from "./project-render-content";
 
-export { renderTodayContent };
+export { renderTodayContent, createTodosRenderContentElement };
 
 function filterTodosToday() {
     const projectsCopy = projects.slice();
