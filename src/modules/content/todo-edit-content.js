@@ -1,4 +1,4 @@
-import { projects } from "../..";
+import { projects, saveToStorage } from "../..";
 import { removeTodo, saveChecklist } from "../navigation/todo-navigation";
 import { renderTodoContent } from "./todo-render-content";
 
@@ -474,6 +474,7 @@ function saveInitialTodoEditContentElement() {
 
     changeTodoTitleDom(title, projectIndex, todoIndex);
     renderTodoContent(projectIndex, todoIndex);
+    saveToStorage();
 }
 
 function saveTodoEditContentElement() {
@@ -514,6 +515,7 @@ function saveTodoEditContentElement() {
 
     changeTodoTitleDom(title, projectIndex, todoIndex);
     renderTodoContent(projectIndex, todoIndex);
+    saveToStorage();
 }
 
 function deleteTodoEditContentElement(element) {
@@ -524,4 +526,5 @@ function deleteTodoEditContentElement(element) {
     removeTodo(projectIndex, todoIndex);
     element.replaceWith(contentChild);
     todoDomElement.remove();
+    saveToStorage();
 }

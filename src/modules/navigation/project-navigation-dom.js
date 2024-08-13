@@ -209,6 +209,7 @@ function saveProjectDomElement() {
 
     projectsDom.insertBefore(createProjectDom(title), initialProject.nextSibling);
     closeProjectDomElement();
+    saveToStorage();
 }
 
 function closeProjectDomElement() {
@@ -277,6 +278,7 @@ function changeProjectTitleDom(project, projectDom, projectTitle, projectEdit, i
     if (projectContent && projectContent.getAttribute("project") == projectIndex) {
         renderProjectContent(projectDom);
     }
+    saveToStorage();
 }
 
 function discardChangesProjectTitleDom(projectDom, projectEdit) {
@@ -290,6 +292,7 @@ function removeProjectDom(projectDom, projectWrapper) {
     projectWrapper.remove();
     const project = document.querySelectorAll("[project]");
     updateAttribute(project, index, "project");
+    saveToStorage();
 }
 
 function updateAttribute(element, index, attribute) {

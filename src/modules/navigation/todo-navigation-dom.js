@@ -1,4 +1,4 @@
-import { projects } from "../../index.js";
+import { projects, saveToStorage } from "../../index.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
 import { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild } from "../content/todo-edit-content.js";
@@ -7,7 +7,7 @@ import { renderProjectContent } from "../content/project-render-content.js";
 import { renderTodayContent } from "../content/today-render-content.js";
 import { renderUpcomingContent } from "../content/upcoming-render-content.js";
 
-export { createTodoDom, removeAllTodosDom };
+export { createTodoDom, removeAllTodosDom, removeTodoDom };
 
 function createTodoDomElement(projectIndex, todoIndex) {
     const todo = document.createElement("div");
@@ -73,6 +73,7 @@ function createTodoDom(project, todos) {
     todo.setAttribute("project", `${projectIndex}`);
     todos.appendChild(todo);
     createInitialTodoEditContentElement(projectIndex, todoIndex);
+    saveToStorage();
 }
 
 function removeAllTodosDom(project) {
@@ -114,6 +115,7 @@ function removeAllTodosDom(project) {
             }
         })
     }
+    saveToStorage();
 }
 
 function removeTodoDom(todo, projectIndex) {
@@ -161,6 +163,7 @@ function removeTodoDom(todo, projectIndex) {
             }
         })
     }
+    saveToStorage();
 }
 
 function renderTodoContentNavigation(element) {
