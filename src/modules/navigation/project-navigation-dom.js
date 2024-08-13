@@ -1,9 +1,10 @@
-import { projects, createProject, editProject, removeProject } from "./project-navigation.js";
+import { createProject, editProject, removeProject } from "./project-navigation.js";
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
 import { renderProjectContent } from "../content/project-render-content.js";
 import { content } from "../content/todo-edit-content.js";
+import { initialProject, saveToStorage, projects } from "../../index.js";
 
-export { updateAttribute, createInitialProjectDom };
+export { updateAttribute, createInitialProjectDom, createProjectDomElement, createInitialProjectDomElement, projectsDom };
 
 const projectsDom = document.querySelector(".projects");
 
@@ -67,7 +68,10 @@ function createInitialProjectDomElement(title) {
     projectWrapper.appendChild(project);
     projectWrapper.appendChild(todos);
 
-    projectAddListIconSvg.addEventListener("click", () => createTodoDom(project, todos));
+    projectAddListIconSvg.addEventListener("click", () => {
+        createTodoDom(project, todos);
+        saveToStorage();
+    });
     
     return projectWrapper;
 }
@@ -77,10 +81,6 @@ function createInitialProjectDom(title) {
     createProject(title);
     projectsDom.appendChild(project);
 }
-
-createInitialProjectDom("Home");
-
-const initialProject = document.querySelector(".initial-project");
 
 function createProjectDomElement(title) {
     const attribute = projects.length;
@@ -151,7 +151,10 @@ function createProjectDomElement(title) {
     projectWrapper.appendChild(todos);
 
     projectEditIconSvg.addEventListener("click", () => editProjectTitleDom(project, projectTitle));
-    projectAddListIconSvg.addEventListener("click", () => createTodoDom(project, todos));
+    projectAddListIconSvg.addEventListener("click", () => {
+        createTodoDom(project, todos);
+        saveToStorage();
+    });
     projectDeleteIconSvg.addEventListener("click", () => removeProjectDom(project, projectWrapper));
 
     return projectWrapper;

@@ -1,4 +1,4 @@
-import { projects } from "../navigation/project-navigation";
+import { projects } from "../..";
 import { removeTodo, saveChecklist } from "../navigation/todo-navigation";
 import { renderTodoContent } from "./todo-render-content";
 

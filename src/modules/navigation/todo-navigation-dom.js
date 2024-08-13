@@ -1,4 +1,4 @@
-import { projects } from "./project-navigation.js";
+import { projects } from "../../index.js";
 import { createTodo, removeAllTodos, removeTodo } from "./todo-navigation.js";
 import { updateAttribute } from "./project-navigation-dom.js";
 import { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild } from "../content/todo-edit-content.js";

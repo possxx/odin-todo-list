@@ -1,4 +1,4 @@
-import { projects } from "./project-navigation.js";
+import { projects } from "../..";
 import { format } from "date-fns";
 
 export { createTodo, removeAllTodos, removeTodo, editTodoTitle, editTodoDescription, editTodoDueDate, editTodoPriority, saveChecklist };

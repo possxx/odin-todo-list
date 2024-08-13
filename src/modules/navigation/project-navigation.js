@@ -1,4 +1,4 @@
-const projects = [];
+import { projects } from "../..";
 
 function Project (title, ...todos) {
     return { title, todos };
@@ -17,7 +17,7 @@ function removeProject(index) {
     projects.splice(index, 1);
 }
 
-export { projects, createProject, editProject, removeProject };
+export { createProject, editProject, removeProject };
 
 
 

@@ -1,4 +1,4 @@
-import { projects } from "../navigation/project-navigation";
+import { projects } from "../..";
 import { content } from "./todo-edit-content";
 import { createTodosRenderContentElement } from "./today-render-content";
 
