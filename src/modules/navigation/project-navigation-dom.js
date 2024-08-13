@@ -4,7 +4,7 @@ import { renderProjectContent } from "../content/project-render-content.js";
 import { content } from "../content/todo-edit-content.js";
 import { initialProject, saveToStorage, projects } from "../../index.js";
 
-export { updateAttribute, createInitialProjectDom, createProjectDomElement, createInitialProjectDomElement, projectsDom };
+export { updateAttribute, createInitialProjectDom, createProjectDomElement, createInitialProjectDomElement, projectsDom, editProjectTitleDom, removeProjectDom };
 
 const projectsDom = document.querySelector(".projects");
 
