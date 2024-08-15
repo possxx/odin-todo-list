@@ -2,7 +2,7 @@ import { projects, saveToStorage } from "../..";
 import { removeTodo, saveChecklist } from "../navigation/todo-navigation";
 import { renderTodoContent } from "./todo-render-content";
 
-export { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild };
+export { createInitialTodoEditContentElement, createTodoEditContentElement, content, contentChild, changeTodoTitleDom };
 
 const content = document.querySelector(".content");
 const contentChild = document.createElement("div");
@@ -499,7 +499,6 @@ function saveTodoEditContentElement() {
         let checklistItem = { checklistTitle, checklistStatus };
         oldChecklist.push(checklistItem);
     })
-    console.log(oldChecklist);
 
     projects[projectIndex].todos[todoIndex].checklists.splice(0);
 
