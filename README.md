@@ -1,0 +1,1 @@
+Todo list application created with webpack 5 that allows you to create new projects, add todos to projects, and add checklists to todos. Additionally you can choose to sort through todos based on various parameters in the navigation bar. Projects will be stored to localStorage and rendered on page load along with all your todos and checklists. 
