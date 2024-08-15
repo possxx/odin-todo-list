@@ -11,7 +11,6 @@ module.exports = {
     "./src/modules/navigation/project-navigation-dom.js",
     "./src/modules/navigation/todo-navigation.js",
     "./src/modules/navigation/todo-navigation-dom.js",
-    "./src/modules/navigation/styling-navigation.js",
     "./src/modules/content/todo-edit-content.js",
     "./src/modules/content/todo-render-content.js",
     "./src/modules/content/project-render-content.js",
