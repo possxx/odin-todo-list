@@ -1,4 +1,4 @@
-import { projects } from "../..";
+import { projects, saveToStorage } from "../..";
 import { content } from "./todo-edit-content";
 import { format } from "date-fns";
 
@@ -172,6 +172,7 @@ function createTodoRenderChecklistItemElement(checklists) {
             todoRenderChecklistItemLabel.appendChild(todoRenderChecklistItemInput);
             todoRenderChecklistItemLabel.appendChild(todoRenderChecklistItemSpan);
             todoRenderChecklistItemElements.push(todoRenderChecklistItemLabel);
+            console.log(item);
         }
     })
     return todoRenderChecklistItemElements;
@@ -183,4 +184,5 @@ function setChecklistStatus(checklist, input) {
     } else {
         checklist.status = "";
     }
+    saveToStorage();
 }
