@@ -6,8 +6,9 @@ import { renderTodoContent } from "../content/todo-render-content.js";
 import { renderProjectContent } from "../content/project-render-content.js";
 import { renderTodayContent } from "../content/today-render-content.js";
 import { renderUpcomingContent } from "../content/upcoming-render-content.js";
+import { renderPriorityContent } from "../content/priority-render-content.js";
 
-export { createTodoDom, removeAllTodosDom, removeTodoDom };
+export { createTodoDom, removeAllTodosDom, removeTodoDom, createTodoDomElement };
 
 function createTodoDomElement(projectIndex, todoIndex) {
     const todo = document.createElement("div");
@@ -133,6 +134,9 @@ function removeTodoDom(todo, projectIndex) {
     const project = document.querySelector(`.project [project='${projectIndex}']`);
     const todayRenderContent = content.querySelector(".today-render-content");
     const upcomingRenderContent = content.querySelector(".upcoming-render-content");
+    const highPriorityRenderContent = content.querySelector(".high-priority-render-content");
+    const mediumPriorityRenderContent = content.querySelector(".medium-priority-render-content");
+    const lowPriorityRenderContent = content.querySelector(".low-priority-render-content");
     const renderTodos = document.querySelectorAll(".render-todos .render-todo-item");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex && todoEditContent.getAttribute("todo") == index) {
@@ -160,6 +164,17 @@ function removeTodoDom(todo, projectIndex) {
         renderTodos.forEach(todo => {
             if (todo.getAttribute("project") == projectIndex && todo.getAttribute("todo") == index) {
                 renderUpcomingContent();
+            }
+        })
+    }
+    if (highPriorityRenderContent || mediumPriorityRenderContent || lowPriorityRenderContent) {
+        let priority;
+        if (highPriorityRenderContent) priority = "high";
+        if (mediumPriorityRenderContent) priority = "medium";
+        if (lowPriorityRenderContent) priority = "low";
+        renderTodos.forEach(todo => {
+            if (todo.getAttribute("project") == projectIndex && todo.getAttribute("todo") == index) {
+                renderPriorityContent(priority);
             }
         })
     }
