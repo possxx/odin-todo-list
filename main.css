@@ -1,0 +1,957 @@
+/*! modern-normalize v2.0.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
+
+/*
+Document
+========
+*/
+
+/**
+Use a better box model (opinionated).
+*/
+
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+html {
+	/* Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3) */
+	font-family:
+		system-ui,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+	line-height: 1.15; /* 1. Correct the line height in all browsers. */
+	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
+	-moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
+	tab-size: 4; /* 3 */
+}
+
+/*
+Sections
+========
+*/
+
+body {
+	margin: 0; /* Remove the margin in all browsers. */
+}
+
+/*
+Grouping content
+================
+*/
+
+/**
+1. Add the correct height in Firefox.
+2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
+*/
+
+hr {
+	height: 0; /* 1 */
+	color: inherit; /* 2 */
+}
+
+/*
+Text-level semantics
+====================
+*/
+
+/**
+Add the correct text decoration in Chrome, Edge, and Safari.
+*/
+
+abbr[title] {
+	text-decoration: underline dotted;
+}
+
+/**
+Add the correct font weight in Edge and Safari.
+*/
+
+b,
+strong {
+	font-weight: bolder;
+}
+
+/**
+1. Improve consistency of default fonts in all browsers. (https://github.com/sindresorhus/modern-normalize/issues/3)
+2. Correct the odd 'em' font sizing in all browsers.
+*/
+
+code,
+kbd,
+samp,
+pre {
+	font-family:
+		ui-monospace,
+		SFMono-Regular,
+		Consolas,
+		'Liberation Mono',
+		Menlo,
+		monospace; /* 1 */
+	font-size: 1em; /* 2 */
+}
+
+/**
+Add the correct font size in all browsers.
+*/
+
+small {
+	font-size: 80%;
+}
+
+/**
+Prevent 'sub' and 'sup' elements from affecting the line height in all browsers.
+*/
+
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/*
+Tabular data
+============
+*/
+
+/**
+1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
+2. Correct table border color inheritance in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+*/
+
+table {
+	text-indent: 0; /* 1 */
+	border-color: inherit; /* 2 */
+}
+
+/*
+Forms
+=====
+*/
+
+/**
+1. Change the font styles in all browsers.
+2. Remove the margin in Firefox and Safari.
+*/
+
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit; /* 1 */
+	font-size: 100%; /* 1 */
+	line-height: 1.15; /* 1 */
+	margin: 0; /* 2 */
+}
+
+/**
+Remove the inheritance of text transform in Edge and Firefox.
+*/
+
+button,
+select {
+	text-transform: none;
+}
+
+/**
+Correct the inability to style clickable types in iOS and Safari.
+*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+/**
+Remove the inner border and padding in Firefox.
+*/
+
+::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+Restore the focus styles unset by the previous rule.
+*/
+
+:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+Remove the additional ':invalid' styles in Firefox.
+See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+*/
+
+:-moz-ui-invalid {
+	box-shadow: none;
+}
+
+/**
+Remove the padding so developers are not caught out when they zero out 'fieldset' elements in all browsers.
+*/
+
+legend {
+	padding: 0;
+}
+
+/**
+Add the correct vertical alignment in Chrome and Firefox.
+*/
+
+progress {
+	vertical-align: baseline;
+}
+
+/**
+Correct the cursor style of increment and decrement buttons in Safari.
+*/
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+
+[type='search'] {
+	-webkit-appearance: textfield; /* 1 */
+	outline-offset: -2px; /* 2 */
+}
+
+/**
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+
+::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+1. Correct the inability to style clickable types in iOS and Safari.
+2. Change font properties to 'inherit' in Safari.
+*/
+
+::-webkit-file-upload-button {
+	-webkit-appearance: button; /* 1 */
+	font: inherit; /* 2 */
+}
+
+/*
+Interactive
+===========
+*/
+
+/*
+Add the correct display in Chrome and Safari.
+*/
+
+summary {
+	display: list-item;
+}
+
+@font-face {
+    font-family: "open-sans";
+    src: url(f1a344827891fe193991.woff2) format("woff2-variations");
+    font-weight: 300 800;
+    font-stretch: 75% 100%;
+}
+
+*, *::before, *::after {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+:root {
+    --sky-50: #f0f9ff;
+    --sky-100: #e0f2fe;
+    --sky-200: #bae6fd;
+    --sky-300: #7dd3fc;
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
+    --sky-600: #0284c7;
+    --sky-700: #0369a1;
+    --sky-800: #075985;
+    --sky-900: #0c4a6e;
+    --sky-950: #082f49;
+}
+
+body {
+    font-family: "open-sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: clamp(16px, 1.75vw, 20px);
+}
+
+p {
+    font-family: "open-sans";
+    font-weight: 400;
+    font-size: clamp(16px, 1.75vw, 20px);
+}
+
+h1 {
+    font-family: "open-sans";
+    font-weight: 700;
+    font-size: clamp(32px, 2.9vw, 36px);
+}
+
+h2 {
+    font-family: "open-sans";
+    font-weight: 600;
+    font-size: clamp(24px, 1.7vw, 28px);
+}
+
+h3 {
+    font-family: "open-sans";
+    font-weight: 600;
+    font-size: clamp(16px, 1.5vw, 20px);
+}
+
+.sidebar {
+    height: 100%;
+    width: clamp(320px, 34vw, 380px);
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: auto;
+    background-color: var(--sky-500);
+    padding: 20px 0 20px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.account-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.account-image {
+    width: clamp(64px, 30%, 80px);
+    border-radius: 64px;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid var(--sky-50);
+    padding: 2px;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+
+.account-name {
+    font-size: clamp(16px, 1.75vw, 20px);
+    font-weight: 400;
+    color: var(--sky-50);
+}
+
+.account-handle {
+    font-size: clamp(12px, 1.35vw, 16px);
+    font-weight: 400;
+    color: var(--sky-100);
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.add-project,
+.today,
+.upcoming,
+.high-priority,
+.medium-priority,
+.low-priority {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navigation * svg {
+    width: clamp(24px, 2.5vw, 32px);
+    fill: var(--sky-50);
+}
+
+.navigation * svg + p {
+    color: var(--sky-50);
+}
+
+.add-project:first-child svg {
+    fill: var(--sky-950);
+}
+
+.add-project:first-child svg + p {
+    color: var(--sky-950);
+    font-weight: 400;
+}
+
+.project-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    user-select: none;
+}
+
+.project-navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.project-navigation > svg {
+    width: clamp(24px, 2.5vw, 32px);
+    min-width: 24px;
+    fill: var(--sky-50);
+}
+
+.project-title {
+    color: var(--sky-50);
+}
+
+.project {
+    display: flex;
+    align-items: center;
+}
+
+.project-icons {
+    display: flex;
+    gap: 4px;
+    margin-left: 24px;
+    z-index: 2;
+}
+
+.project-icons svg {
+    width: clamp(16px, 1.8vw, 24px);
+    min-width: 16px;
+    fill: var(--sky-50);
+}
+
+.project-edit,
+.project-add-list,
+.project-delete {
+    cursor: pointer;
+}
+
+.project-edit-title-input {
+    padding: 0 16px 0 0;
+}
+
+.project-edit-title-input input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--sky-50);
+    background-color: transparent;
+    color: var(--sky-50);
+    margin-bottom: 4px;
+}
+
+.project-edit-title-input input:focus {
+    outline: none;
+}
+
+.project-edit-title-input input::placeholder {
+    color: var(--sky-50);
+}
+
+.project-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.change-title,
+.discard-changes,
+.save-project,
+.discard-project {
+    border-radius: 4px;
+    border: none;
+    padding: 4px 8px;
+    background-color: var(--sky-50);
+    color: var(--sky-950);
+    cursor: pointer;
+}
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    user-select: none;
+}
+
+.todo-navigation {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    cursor: pointer;
+}
+
+.todo-navigation > svg {
+    width: clamp(16px, 1.8vw, 24px);
+    min-width: 16px;
+    fill: var(--sky-50);
+}
+
+.todo-title {
+    color: var(--sky-50);
+    font-size: clamp(12px, 1.35vw, 16px);
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+}
+
+.todo:last-child {
+    padding-bottom: 4px;
+}
+
+.todo-icons {
+    display: flex;
+    gap: 4px;
+    margin-left: 24px;
+    z-index: 2;
+}
+
+.todo-edit,
+.todo-delete {
+    cursor: pointer;
+}
+
+.todo-icons svg {
+    width: clamp(16px, 1.5vw, 20px);
+    min-width: 16px;
+    fill: var(--sky-50);
+}
+
+.content {
+    margin-left: clamp(320px, 34vw, 380px);
+    background-color: var(--sky-50);
+    min-height: 100vh;
+    height: 100%;
+}
+
+.todo-edit-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    width: clamp(400px, 70%, 800px);
+}
+
+.todo-edit-title,
+.todo-edit-description,
+.todo-edit-due-date,
+.todo-low-priority,
+.todo-medium-priority,
+.todo-high-priority {
+    display: flex;
+    gap: 8px;
+}
+
+.todo-edit-content {
+    color: var(--sky-950);
+    user-select: none;
+}
+
+.todo-edit-title input {
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    background-color: transparent;
+    color: var(--sky-950);
+    width: 100%;
+}
+
+.todo-edit-title {
+    align-items: center;
+}
+
+.todo-edit-description {
+    align-items: flex-start;
+}
+
+.todo-edit-title input:focus,
+.todo-edit-description textarea:focus {
+    outline: none;
+}
+
+.todo-edit-title input::placeholder,
+.todo-edit-description textarea::placeholder {
+    color: var(--sky-950);
+}
+
+.todo-edit-description textarea {
+    resize: none;
+    color: var(--sky-950);
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    width: 100%;
+    height: 100px;
+}
+
+.todo-edit-due-date {
+    align-items: center;
+}
+
+.todo-edit-due-date input {
+    border: 1px solid var(--sky-950);
+    background: transparent;
+    color: var(--sky-950);
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+::-webkit-calendar-picker-indicator { 
+    cursor: pointer; 
+}
+
+::-webkit-calendar-picker-indicator {
+    background-image: url("data:image/svg+xml;utf8,<svg fill=\"rgb%288,47,73%29\" xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"15\" viewBox=\"0 0 24 24\"><path d=\"M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V8h16v13z\"/></svg>");
+}
+
+.todo-edit-due-date input:focus {
+    outline: none;
+}
+
+.todo-edit-priority fieldset,
+.todo-edit-checklist fieldset {
+    border: 1px solid var(--sky-950);
+    border-radius: 4px;
+}
+
+.todo-low-priority,
+.todo-medium-priority,
+.todo-high-priority {
+    position: relative;
+    cursor: pointer;
+    padding-left: 24px;
+}
+
+.todo-low-priority input,
+.todo-medium-priority input,
+.todo-high-priority input {
+    position: absolute;
+    opacity: 0;
+    height: 16px;
+    width: 16px;
+    top: 7px;
+    left: 0;
+}
+
+.todo-low-priority label,
+.todo-medium-priority label,
+.todo-high-priority label {
+    order: 1;
+    cursor: pointer;
+}
+
+.checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid var(--sky-950);
+    border-radius: 50%;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-low-priority input:checked ~ .checkmark:after,
+.todo-medium-priority input:checked ~ .checkmark:after,
+.todo-high-priority input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.todo-low-priority .checkmark:after,
+.todo-medium-priority .checkmark:after,
+.todo-high-priority .checkmark:after {
+    top: 3px;
+    left: 3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--sky-950);
+}
+
+.checklist-item {
+    display: flex;
+    gap: 8px;
+}
+
+.checklist-item label {
+    white-space: nowrap;
+}
+
+.checklist-item input {
+    border: none;
+    border-bottom: 1px solid var(--sky-950);
+    background-color: transparent;
+    color: var(--sky-950);
+    width: 90%;
+}
+
+.checklist-item input:focus {
+    outline: none;
+}
+
+.checklist-item input::placeholder {
+    color: var(--sky-950);
+}
+
+.checklist-item svg {
+    width: clamp(24px, 2.5vw, 32px);
+    fill: var(--sky-950);
+    cursor: pointer;
+}
+
+.checklist-add-item {
+    display: flex;
+    gap: 8px;
+}
+
+.checklist-add-item svg {
+    width: clamp(24px, 2.5vw, 32px);
+    min-width: 24px;
+    fill: var(--sky-950);
+}
+
+.todo-edit-checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.checklist-add-item {
+    cursor: pointer;
+}
+
+.todo-edit-buttons {
+    display: flex;
+    gap: 4px;
+}
+
+.save-todo,
+.discard-todo {
+    border-radius: 4px;
+    border: none;
+    padding: 4px 8px;
+    background-color: var(--sky-950);
+    color: var(--sky-50);
+    cursor: pointer;
+}
+
+.todo-render-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px 16px;
+    width: clamp(400px, 70%, 800px);
+}
+
+.todo-render-meta {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    user-select: none;
+}
+
+.todo-render-due-date {
+    font-size: clamp(12px, 1.35vw, 16px);
+}
+
+.todo-render-priority {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.todo-render-priority svg {
+    width: 20px;
+    fill: var(--sky-950);
+    min-width: 20px;
+}
+
+.todo-render-priority p {
+    font-size: clamp(12px, 1.35vw, 16px);
+    white-space: nowrap;
+}
+
+.todo-render-checklist fieldset {
+    border: 1px solid var(--sky-950);
+    border-radius: 4px;
+}
+
+.todo-render-checklist-items {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.todo-render-checklist-item {
+    display: flex;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 24px;
+}
+
+.todo-render-checklist-item input {
+    order: -1;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkbox-checkmark {
+    position: absolute;
+    top: 7px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: transparent;
+    border: 1px solid var(--sky-950);
+}
+
+.checkbox-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo-render-checklist-item input:checked ~ .checkbox-checkmark:after {
+    display: block;
+}
+
+.todo-render-checklist-item .checkbox-checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 11px;
+    border: solid var(--sky-950);
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.project-render-content,
+.today-render-content,
+.upcoming-render-content,
+.high-priority-render-content,
+.medium-priority-render-content,
+.low-priority-render-content {
+    padding: 20px 16px;
+    width: clamp(400px, 70%, 800px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.project-render-heading {
+    border-bottom: 1px solid var(--sky-950);
+}
+
+.render-todos {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 16px;
+    row-gap: 16px;
+}
+
+.render-todo-item {
+    padding: 16px;
+    border: 1px solid var(--sky-950);
+    border-radius: 16px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.render-todo-meta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    user-select: none;
+}
+
+.render-todo-due-date {
+    font-size: clamp(12px, 1.35vw, 16px);
+}
+
+.render-todo-priority {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.render-todo-priority svg {
+    width: 20px;
+    fill: var(--sky-950);
+    min-width: 20px;
+}
+
+.render-todo-priority p {
+    font-size: clamp(12px, 1.35vw, 16px);
+    white-space: nowrap;
+}
+
+.render-todo-description p {
+    word-break: break-all;
+}
+
+.display-none {
+    display: none;
+}
