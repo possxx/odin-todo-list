@@ -86,6 +86,7 @@ h3 {
     display: flex;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
 }
 
 .account-image {
@@ -97,10 +98,6 @@ h3 {
     padding: 2px;
     border-bottom-color: transparent;
     border-right-color: transparent;
-}
-
-.account-text {
-    cursor: pointer;
 }
 
 .account-name {
