@@ -26,6 +26,33 @@ lowPriorityNavigation.addEventListener("click", () => renderPriorityContent("low
 let initialProject;
 let projects;
 
+if (localStorage.getItem("projects")) {
+  const oldProjects = retrieveFromStorage();
+  projects = [];
+  oldProjects.forEach((oldProject, projectIndex) => {
+    if (projectIndex == 0) {
+      createInitialProjectDom(oldProject.title);
+      initialProject = document.querySelector(".initial-project");
+      let todos = document.querySelector(`.todos[project='${projectIndex}']`);
+      oldProject.todos.forEach((todo, todoIndex) => {
+        pageLoadCreateTodo(projectIndex, todoIndex, todos);
+        pageLoadSaveTodo(projectIndex, todoIndex, todo);
+      })
+    } else if (projectIndex > 0) {
+      projectsDom.insertBefore(createProjectDom(oldProject.title), initialProject.nextSibling);
+      let todos = document.querySelector(`.todos[project='${projectIndex}']`);
+      oldProject.todos.forEach((todo, todoIndex) => {
+        pageLoadCreateTodo(projectIndex, todoIndex, todos);
+        pageLoadSaveTodo(projectIndex, todoIndex, todo);
+      })
+    } 
+  })
+} else {
+  projects = [];
+  createInitialProjectDom("Home");
+  initialProject = document.querySelector(".initial-project");
+}
+
 function saveToStorage() {
     localStorage.setItem("projects", JSON.stringify(projects));
 }
@@ -68,31 +95,3 @@ function pageLoadSaveTodo(projectIndex, todoIndex, todo) {
 
   changeTodoTitleDom(title, projectIndex, todoIndex);
 }
-
-if (localStorage.getItem("projects")) {
-    const oldProjects = retrieveFromStorage();
-    projects = [];
-    oldProjects.forEach((oldProject, projectIndex) => {
-      if (projectIndex == 0) {
-        createInitialProjectDom(oldProject.title);
-        initialProject = document.querySelector(".initial-project");
-        let project = document.querySelector(`.project[project='${projectIndex}']`);
-        let todos = document.querySelector(`.todos[project='${projectIndex}']`);
-        oldProject.todos.forEach((todo, todoIndex) => {
-          pageLoadCreateTodo(projectIndex, todoIndex, todos);
-          pageLoadSaveTodo(projectIndex, todoIndex, todo);
-        })
-      } else if (projectIndex > 0) {
-        projectsDom.insertBefore(createProjectDom(oldProject.title), initialProject.nextSibling);
-        let todos = document.querySelector(`.todos[project='${projectIndex}']`);
-        oldProject.todos.forEach((todo, todoIndex) => {
-          pageLoadCreateTodo(projectIndex, todoIndex, todos);
-          pageLoadSaveTodo(projectIndex, todoIndex, todo);
-        })
-      } 
-    })
-  } else {
-    projects = [];
-    createInitialProjectDom("Home");
-    initialProject = document.querySelector(".initial-project");
-  }
