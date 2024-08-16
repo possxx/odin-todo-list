@@ -16,6 +16,7 @@ function createTodoDomElement(projectIndex, todoIndex) {
 
     const todoNavigation = document.createElement("div");
     todoNavigation.classList.add("todo-navigation");
+    todoNavigation.classList.add("navigation-item");
     todoNavigation.setAttribute("project", projectIndex);
     todoNavigation.setAttribute("todo", todoIndex);
 

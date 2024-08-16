@@ -34,6 +34,7 @@ function createInitialProjectDomElement(title) {
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
+    projectNavigation.classList.add("navigation-item");
     projectNavigation.addEventListener("click", () => renderProjectContent(project));
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -98,6 +99,7 @@ function createProjectDomElement(title) {
 
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
+    projectNavigation.classList.add("navigation-item");
     projectNavigation.addEventListener("click", () => renderProjectContent(project));
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
