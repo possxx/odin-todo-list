@@ -89,6 +89,16 @@ h3 {
     cursor: pointer;
 }
 
+.account-container:hover > .account-image {
+    border-color: var(--sky-950);
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+}
+
+.account-container:hover > .account-text > * {
+    color: var(--sky-950);
+}
+
 .account-image {
     width: clamp(64px, 30%, 80px);
     border-radius: 64px;
@@ -677,6 +687,40 @@ h3 {
 
 .render-todo-description p {
     word-break: break-all;
+}
+
+.today:hover > svg,
+.upcoming:hover > svg,
+.high-priority:hover > svg,
+.medium-priority:hover > svg,
+.low-priority:hover > svg {
+    fill: var(--sky-950);
+}
+
+.today:hover > p,
+.upcoming:hover > p,
+.high-priority:hover > p,
+.medium-priority:hover > p,
+.low-priority:hover > p {
+    color: var(--sky-950);
+}
+
+.project-navigation:hover > svg,
+.todo-navigation:hover > svg {
+    fill: var(--sky-950);
+}
+
+.project-navigation:hover > .project-title,
+.todo-navigation:hover > .todo-title {
+    color: var(--sky-950);
+}
+
+.project-edit:hover,
+.project-add-list:hover,
+.project-delete:hover,
+.todo-edit:hover,
+.todo-delete:hover {
+    fill: var(--sky-950);
 }
 
 .display-none {
