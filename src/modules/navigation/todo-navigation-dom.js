@@ -95,6 +95,9 @@ function removeAllTodosDom(project) {
     const projectRenderContent = content.querySelector(".project-render-content");
     const todayRenderContent = content.querySelector(".today-render-content");
     const upcomingRenderContent = content.querySelector(".upcoming-render-content");
+    const highPriorityRenderContent = content.querySelector(".high-priority-render-content");
+    const mediumPriorityRenderContent = content.querySelector(".medium-priority-render-content");
+    const lowPriorityRenderContent = content.querySelector(".low-priority-render-content");
     const renderTodos = content.querySelectorAll(".render-todos .render-todo-item");
     if (todoEditContent) {
         if (todoEditContent.getAttribute("project") == projectIndex) {
@@ -120,6 +123,17 @@ function removeAllTodosDom(project) {
         renderTodos.forEach(todo => {
             if (todo.getAttribute("project") == projectIndex) {
                 renderUpcomingContent();
+            }
+        })
+    }
+    if (highPriorityRenderContent || mediumPriorityRenderContent || lowPriorityRenderContent) {
+        let priority;
+        if (highPriorityRenderContent) priority = "high";
+        if (mediumPriorityRenderContent) priority = "medium";
+        if (lowPriorityRenderContent) priority = "low";
+        renderTodos.forEach(todo => {
+            if (todo.getAttribute("project") == projectIndex) {
+                renderPriorityContent(priority);
             }
         })
     }
