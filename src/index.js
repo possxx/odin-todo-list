@@ -6,22 +6,37 @@ import { createTodoDomElement, removeTodoDom } from "./modules/navigation/todo-n
 import { createTodoEditContentElement, changeTodoTitleDom } from "./modules/content/todo-edit-content";
 import { createTodo, saveChecklist } from "./modules/navigation/todo-navigation";
 
-export { initialProject, saveToStorage, retrieveFromStorage, projects };
+export { initialProject, saveToStorage, retrieveFromStorage, projects, changeActiveElement };
 
 const todayNavigation = document.querySelector(".today");
-todayNavigation.addEventListener("click", () => renderTodayContent());
+todayNavigation.addEventListener("click", () => {
+  renderTodayContent();
+  changeActiveElement(todayNavigation);
+});
 
 const upcomingNavigation = document.querySelector(".upcoming");
-upcomingNavigation.addEventListener("click", () => renderUpcomingContent());
+upcomingNavigation.addEventListener("click", () => {
+  renderUpcomingContent();
+  changeActiveElement(upcomingNavigation);
+});
 
 const highPriorityNavigation = document.querySelector(".high-priority");
-highPriorityNavigation.addEventListener("click", () => renderPriorityContent("high"));
+highPriorityNavigation.addEventListener("click", () => {
+  renderPriorityContent("high");
+  changeActiveElement(highPriorityNavigation);
+});
 
 const mediumPriorityNavigation = document.querySelector(".medium-priority");
-mediumPriorityNavigation.addEventListener("click", () => renderPriorityContent("medium"));
+mediumPriorityNavigation.addEventListener("click", () => {
+  renderPriorityContent("medium");
+  changeActiveElement(mediumPriorityNavigation);
+});
 
 const lowPriorityNavigation = document.querySelector(".low-priority");
-lowPriorityNavigation.addEventListener("click", () => renderPriorityContent("low"));
+lowPriorityNavigation.addEventListener("click", () => {
+  renderPriorityContent("low");
+  changeActiveElement(lowPriorityNavigation);
+});
 
 let initialProject;
 let projects;
@@ -94,4 +109,23 @@ function pageLoadSaveTodo(projectIndex, todoIndex, todo) {
   })
 
   changeTodoTitleDom(title, projectIndex, todoIndex);
+}
+
+function changeActiveElement(navigationElement) {
+  removeActiveElement();
+  const svg = navigationElement.children[0];
+  const title = navigationElement.children[1];
+  console.log(svg);
+  console.log(title);
+  svg.classList.add("active-element");
+  title.classList.add("active-element");
+}
+
+function removeActiveElement() {
+  const navigationElements = document.querySelectorAll(".navigation-item");
+
+  navigationElements.forEach(element => {
+    element.children[0].classList.remove("active-element");
+    element.children[1].classList.remove("active-element");
+  })
 }

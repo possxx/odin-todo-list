@@ -723,6 +723,11 @@ h3 {
     fill: var(--sky-950);
 }
 
+.active-element {
+    fill: var(--sky-950) !important;
+    color: var(--sky-950) !important;
+}
+
 .display-none {
     display: none;
 }

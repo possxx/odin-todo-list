@@ -1,4 +1,4 @@
-import { projects, saveToStorage } from "../..";
+import { changeActiveElement, projects, saveToStorage } from "../..";
 import { content } from "./todo-edit-content";
 import { format } from "date-fns";
 
@@ -84,6 +84,9 @@ function createTodoRenderContentElement(projectIndex, todoIndex) {
     todoRenderContent.appendChild(todoRenderHeader);
     todoRenderContent.appendChild(todoRenderDescription);
     todoRenderContent.appendChild(todoRenderChecklist);
+
+    const todoNavigation = document.querySelector(`.todo-navigation[project='${projectIndex}'][todo='${todoIndex}']`);
+    changeActiveElement(todoNavigation);
 
     return todoRenderContent;
 }

@@ -2,7 +2,7 @@ import { createProject, editProject, removeProject } from "./project-navigation.
 import { createTodoDom, removeAllTodosDom } from "./todo-navigation-dom.js";
 import { renderProjectContent } from "../content/project-render-content.js";
 import { content } from "../content/todo-edit-content.js";
-import { initialProject, saveToStorage, projects } from "../../index.js";
+import { initialProject, saveToStorage, projects, changeActiveElement } from "../../index.js";
 
 export { updateAttribute, createInitialProjectDom, createProjectDomElement, createInitialProjectDomElement, projectsDom, editProjectTitleDom, removeProjectDom, createProjectDom };
 
@@ -35,7 +35,10 @@ function createInitialProjectDomElement(title) {
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
     projectNavigation.classList.add("navigation-item");
-    projectNavigation.addEventListener("click", () => renderProjectContent(project));
+    projectNavigation.addEventListener("click", () => {
+        renderProjectContent(project);
+        changeActiveElement(projectNavigation);
+    });
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -100,7 +103,10 @@ function createProjectDomElement(title) {
     const projectNavigation = document.createElement("div");
     projectNavigation.classList.add("project-navigation");
     projectNavigation.classList.add("navigation-item");
-    projectNavigation.addEventListener("click", () => renderProjectContent(project));
+    projectNavigation.addEventListener("click", () => {
+        renderProjectContent(project);
+        changeActiveElement(projectNavigation);
+    });
 
     const projectIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     const projectIconPath = document.createElementNS("http://www.w3.org/2000/svg", "path");
